@@ -7,16 +7,16 @@
       "RelativeMoniker": "D:0:0:{F6242A53-B9D7-43D6-967C-B8A71513D89B}|SideHub\\SideHub.csproj|solutionrelative:sidehub\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F6242A53-B9D7-43D6-967C-B8A71513D89B}|SideHub\\SideHub.csproj|c:\\projects\\sidehub\\sidehub\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{F6242A53-B9D7-43D6-967C-B8A71513D89B}|SideHub\\SideHub.csproj|solutionrelative:sidehub\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{F6242A53-B9D7-43D6-967C-B8A71513D89B}|SideHub\\SideHub.csproj|C:\\Projects\\SideHub\\SideHub\\MainWindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{F6242A53-B9D7-43D6-967C-B8A71513D89B}|SideHub\\SideHub.csproj|solutionrelative:SideHub\\MainWindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F6242A53-B9D7-43D6-967C-B8A71513D89B}|SideHub\\SideHub.csproj|c:\\projects\\sidehub\\sidehub\\core\\observableobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F6242A53-B9D7-43D6-967C-B8A71513D89B}|SideHub\\SideHub.csproj|solutionrelative:sidehub\\core\\observableobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F6242A53-B9D7-43D6-967C-B8A71513D89B}|SideHub\\SideHub.csproj|C:\\Projects\\SideHub\\SideHub\\Core\\ObservableObject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F6242A53-B9D7-43D6-967C-B8A71513D89B}|SideHub\\SideHub.csproj|solutionrelative:SideHub\\Core\\ObservableObject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F6242A53-B9D7-43D6-967C-B8A71513D89B}|SideHub\\SideHub.csproj|c:\\projects\\sidehub\\sidehub\\core\\relaycommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F6242A53-B9D7-43D6-967C-B8A71513D89B}|SideHub\\SideHub.csproj|solutionrelative:sidehub\\core\\relaycommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F6242A53-B9D7-43D6-967C-B8A71513D89B}|SideHub\\SideHub.csproj|C:\\Projects\\SideHub\\SideHub\\Core\\RelayCommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F6242A53-B9D7-43D6-967C-B8A71513D89B}|SideHub\\SideHub.csproj|solutionrelative:SideHub\\Core\\RelayCommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -37,8 +37,7 @@
               "ToolTip": "C:\\Projects\\SideHub\\SideHub\\MainWindow.xaml",
               "RelativeToolTip": "SideHub\\MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-03-07T22:17:16.276Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-07T22:17:16.276Z"
             },
             {
               "$type": "Document",
@@ -48,7 +47,7 @@
               "RelativeDocumentMoniker": "SideHub\\MainWindow.xaml.cs",
               "ToolTip": "C:\\Projects\\SideHub\\SideHub\\MainWindow.xaml.cs",
               "RelativeToolTip": "SideHub\\MainWindow.xaml.cs",
-              "ViewState": "AgIAAIkAAAAAAAAAAIAwwGwAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAACQAAAAAAAAAAAApwGwAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-07T22:17:14.334Z",
               "EditorCaption": ""
@@ -63,8 +62,7 @@
               "RelativeToolTip": "SideHub\\Core\\ObservableObject.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-07T22:25:24.302Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-07T22:25:24.302Z"
             },
             {
               "$type": "Document",
@@ -76,8 +74,7 @@
               "RelativeToolTip": "SideHub\\Core\\RelayCommand.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-07T22:32:19.631Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-07T22:32:19.631Z"
             }
           ]
         }

@@ -3,20 +3,20 @@
   "WorkspaceRootPath": "C:\\Projects\\SideHub\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Projects\\SideHub\\SideHub\\MainWindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:SideHub\\MainWindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F6242A53-B9D7-43D6-967C-B8A71513D89B}|SideHub\\SideHub.csproj|c:\\projects\\sidehub\\sidehub\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F6242A53-B9D7-43D6-967C-B8A71513D89B}|SideHub\\SideHub.csproj|solutionrelative:sidehub\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Projects\\SideHub\\SideHub\\MainWindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:SideHub\\MainWindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{F6242A53-B9D7-43D6-967C-B8A71513D89B}|SideHub\\SideHub.csproj|C:\\Projects\\SideHub\\SideHub\\MainWindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{F6242A53-B9D7-43D6-967C-B8A71513D89B}|SideHub\\SideHub.csproj|solutionrelative:SideHub\\MainWindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Projects\\SideHub\\SideHub\\Core\\ObservableObject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:SideHub\\Core\\ObservableObject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F6242A53-B9D7-43D6-967C-B8A71513D89B}|SideHub\\SideHub.csproj|C:\\Projects\\SideHub\\SideHub\\Core\\ObservableObject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F6242A53-B9D7-43D6-967C-B8A71513D89B}|SideHub\\SideHub.csproj|solutionrelative:SideHub\\Core\\ObservableObject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Projects\\SideHub\\SideHub\\Core\\RelayCommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:SideHub\\Core\\RelayCommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F6242A53-B9D7-43D6-967C-B8A71513D89B}|SideHub\\SideHub.csproj|C:\\Projects\\SideHub\\SideHub\\Core\\RelayCommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F6242A53-B9D7-43D6-967C-B8A71513D89B}|SideHub\\SideHub.csproj|solutionrelative:SideHub\\Core\\RelayCommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -47,7 +47,7 @@
               "RelativeDocumentMoniker": "SideHub\\MainWindow.xaml.cs",
               "ToolTip": "C:\\Projects\\SideHub\\SideHub\\MainWindow.xaml.cs",
               "RelativeToolTip": "SideHub\\MainWindow.xaml.cs",
-              "ViewState": "AgIAADgAAAAAAAAAAIAwwGwAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAACQAAAAAAAAAAAApwGwAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-07T22:17:14.334Z",
               "EditorCaption": ""
