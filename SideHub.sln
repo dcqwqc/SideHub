@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35825.156 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SideHub", "SideHub\SideHub.csproj", "{F6242A53-B9D7-43D6-967C-B8A71513D89B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F6242A53-B9D7-43D6-967C-B8A71513D89B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6242A53-B9D7-43D6-967C-B8A71513D89B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6242A53-B9D7-43D6-967C-B8A71513D89B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6242A53-B9D7-43D6-967C-B8A71513D89B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1D4CF039-53F6-42BE-8A84-484CB0FCEE6B}
+	EndGlobalSection
+EndGlobal

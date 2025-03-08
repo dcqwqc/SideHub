@@ -1,0 +1,15 @@
+C:\Projects\SideHub\SideHub\bin\Debug\SideHub.exe.config
+C:\Projects\SideHub\SideHub\bin\Debug\SideHub.exe
+C:\Projects\SideHub\SideHub\bin\Debug\SideHub.pdb
+C:\Projects\SideHub\SideHub\obj\Debug\SideHub.csproj.AssemblyReference.cache
+C:\Projects\SideHub\SideHub\obj\Debug\MainWindow.g.cs
+C:\Projects\SideHub\SideHub\obj\Debug\App.g.cs
+C:\Projects\SideHub\SideHub\obj\Debug\SideHub_MarkupCompile.cache
+C:\Projects\SideHub\SideHub\obj\Debug\SideHub_MarkupCompile.lref
+C:\Projects\SideHub\SideHub\obj\Debug\MainWindow.baml
+C:\Projects\SideHub\SideHub\obj\Debug\SideHub.g.resources
+C:\Projects\SideHub\SideHub\obj\Debug\SideHub.Properties.Resources.resources
+C:\Projects\SideHub\SideHub\obj\Debug\SideHub.csproj.GenerateResource.cache
+C:\Projects\SideHub\SideHub\obj\Debug\SideHub.csproj.CoreCompileInputs.cache
+C:\Projects\SideHub\SideHub\obj\Debug\SideHub.exe
+C:\Projects\SideHub\SideHub\obj\Debug\SideHub.pdb
