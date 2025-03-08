@@ -52,7 +52,7 @@ namespace SideHub
                 MSLLHOOKSTRUCT hookStruct = Marshal.PtrToStructure<MSLLHOOKSTRUCT>(lParam);
                 int button = (hookStruct.mouseData >> 16) & 0xFFFF;
 
-                if (button == XBUTTON1) // MB5 Pressed
+                if (button == XBUTTON2) // MB4 Pressed
                 {
                     Application.Current.Dispatcher.Invoke(() =>
                     {
@@ -113,7 +113,7 @@ namespace SideHub
 
         private const int WH_MOUSE_LL = 14;
         private const int WM_XBUTTONDOWN = 0x020B;
-        private const int XBUTTON1 = 1; // MB5
+        private const int XBUTTON2 = 2; // MB4
 
         private const int HWND_TOPMOST = -1;
         private const int SWP_NOMOVE = 0x0002;
