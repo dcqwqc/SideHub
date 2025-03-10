@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SideHub")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+32167874a9d443b7acc8bfc63dd276e4db76ae3a")]
 [assembly: System.Reflection.AssemblyProductAttribute("SideHub")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SideHub")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

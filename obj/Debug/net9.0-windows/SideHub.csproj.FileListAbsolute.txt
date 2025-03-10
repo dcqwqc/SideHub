@@ -18,3 +18,4 @@ C:\Projects\SideHub\obj\Debug\net9.0-windows\refint\SideHub.dll
 C:\Projects\SideHub\obj\Debug\net9.0-windows\SideHub.pdb
 C:\Projects\SideHub\obj\Debug\net9.0-windows\SideHub.genruntimeconfig.cache
 C:\Projects\SideHub\obj\Debug\net9.0-windows\ref\SideHub.dll
+C:\Projects\SideHub\obj\Debug\net9.0-windows\SideHub.csproj.AssemblyReference.cache

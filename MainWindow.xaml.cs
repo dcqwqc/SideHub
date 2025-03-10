@@ -1,14 +1,20 @@
 ﻿using System;
 using System.Diagnostics;
+using System.IO;
 using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Media.Animation;
+using System.Windows.Media.Imaging;
+using Windows.Media.Control;
+using WindowsMediaController;
 
 
 namespace SideHub
 {
     public partial class MainWindow : Window
     {
+        private MediaManager mediaManager;
+
         private static IntPtr _hookID = IntPtr.Zero;
         private static LowLevelMouseProc _proc = HookCallback;
         private bool isVisible = true;
@@ -18,6 +24,13 @@ namespace SideHub
 
         public MainWindow()
         {
+            // Initialize MediaManager
+            InitializeComponent();
+            InitializeMediaManager();
+            mediaManager.OnAnySessionOpened += MediaManager_OnAnySessionOpened;
+            mediaManager.OnAnySessionClosed += MediaManager_OnAnySessionClosed;
+            mediaManager.StartAsync();
+        
             this.Height = SystemParameters.PrimaryScreenHeight - 20;
             this.Top = (SystemParameters.PrimaryScreenHeight - this.Height) / 2;
             this.Left = hiddenPosition;
@@ -27,6 +40,162 @@ namespace SideHub
             // Set up global mouse hook
             _hookID = SetHook(_proc);
         }
+
+
+        private void InitializeMediaManager()
+        {
+            mediaManager = new MediaManager();
+            mediaManager.OnAnySessionOpened += MediaManager_OnAnySessionOpened;
+            mediaManager.OnAnySessionClosed += MediaManager_OnAnySessionClosed;
+            mediaManager.OnAnyMediaPropertyChanged += MediaManager_OnAnyMediaPropertyChanged;
+
+            // Start the MediaManager asynchronously
+            mediaManager.StartAsync();
+        }
+        private async void MediaManager_OnAnySessionOpened(MediaManager.MediaSession session)
+        {
+            // Get current media properties, such as title and thumbnail
+            var mediaProperties = await session.ControlSession.TryGetMediaPropertiesAsync();
+
+            // Get the title of the current media (e.g., song, video title)
+            var mediaTitle = mediaProperties?.Title;
+            var mediaThumbnailReference = mediaProperties?.Thumbnail;
+
+            // Update the UI with the current title
+            Dispatcher.Invoke(() =>
+            {
+                mediaTitleTextBlock.Text = mediaTitle ?? "No media playing";
+
+                // Call the function to display the thumbnail
+                DisplayThumbnail(mediaThumbnailReference);
+            });
+        }
+
+
+        private async Task DisplayThumbnail(Windows.Storage.Streams.IRandomAccessStreamReference thumbnailReference)
+        {
+            if (thumbnailReference != null)
+            {
+                try
+                {
+                    // Open the random access stream
+                    var randomStream = await thumbnailReference.OpenReadAsync();
+
+                    // Convert the IRandomAccessStream to a .NET Stream
+                    using (var stream = randomStream.AsStreamForRead())
+                    {
+                        // Create a BitmapImage and load the stream
+                        var bitmapImage = new BitmapImage();
+                        bitmapImage.BeginInit();
+                        bitmapImage.CacheOption = BitmapCacheOption.OnLoad; // Ensures the stream can be closed after loading
+                        bitmapImage.StreamSource = stream;
+                        bitmapImage.EndInit();
+                        bitmapImage.Freeze(); // Makes the image cross-thread accessible
+
+                        // Update the UI on the dispatcher thread
+                        Dispatcher.Invoke(() =>
+                        {
+                            mediaThumbnailImage.Source = bitmapImage;  // Assuming you have an Image control named mediaThumbnailImage
+                        });
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error displaying thumbnail: " + ex.Message);
+                }
+            }
+            else
+            {
+                Dispatcher.Invoke(() =>
+                {
+                    mediaThumbnailImage.Source = null;  // Or set a default image if no thumbnail
+                });
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // Event handler when a media session is closed
+        private void MediaManager_OnAnySessionClosed(MediaManager.MediaSession session)
+        {
+            Dispatcher.Invoke(() =>
+            {
+                mediaTitleTextBlock.Text = "No media playing"; // Reset UI when media is closed
+            });
+        }
+
+        // Don't forget to stop the MediaManager when closing the window
+        protected override void OnClosed(EventArgs e)
+        {
+            mediaManager?.ForceUpdate(); // Force update to stop the media manager
+            base.OnClosed(e);
+        }
+
+        private async void MediaManager_OnAnyMediaPropertyChanged(MediaManager.MediaSession sender, GlobalSystemMediaTransportControlsSessionMediaProperties args)
+        {
+            // Get the media title from the updated properties
+            var mediaTitle = args?.Title;
+            var mediaArtist = args?.Artist; // Get the artist name
+            var mediaThumbnail = args?.Thumbnail; // Get the media thumbnail
+
+            // Update the UI with the new title
+            if (!string.IsNullOrEmpty(mediaTitle))
+            {
+                Dispatcher.Invoke(() =>
+                {
+                    mediaTitleTextBlock.Text = mediaTitle; // Update the media title
+                });
+            }
+
+            // Update the artist if it exists
+            if (!string.IsNullOrEmpty(mediaArtist))
+            {
+                Dispatcher.Invoke(() =>
+                {
+                    mediaArtistTextBlock.Text = mediaArtist; // Update the media artist
+                });
+            }
+
+            // Update the thumbnail if it exists
+            if (mediaThumbnail != null)
+            {
+                // Display the thumbnail in the UI
+                await DisplayThumbnail(mediaThumbnail); // Call the DisplayThumbnail method to update the image
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         private void Window_Closed(object sender, EventArgs e)
         {
@@ -162,6 +331,11 @@ namespace SideHub
         private const byte VK_MEDIA_PREV_TRACK = 0xB1;
 
 
+
+
+
+
+
         private void PlayClick(object sender, RoutedEventArgs e)
         {
             // Simulate pressing the Play/Pause media key
@@ -182,5 +356,15 @@ namespace SideHub
             keybd_event(VK_MEDIA_PREV_TRACK, 0, 2, 0); // Key release
         }
 
+        private void SessionSkipClick(object sender, RoutedEventArgs e)
+        {
+            SwitchToNextSession();
+        }
+
+
+        private void SwitchToNextSession()
+        {
+            //help
+        }
     }
 }

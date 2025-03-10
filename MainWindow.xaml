@@ -30,12 +30,20 @@
             <!-- Audio Integration -->
             <Rectangle Grid.Row="0" Grid.Column="0" Fill="#ffffff" Margin="20,20,235,0" RadiusX="7" RadiusY="7"/>
 
-            <Button Name="PlayButton" Content="Play" Background="#000ff0" FontSize="14" Click="PlayClick" Margin="131,70,341,18" RenderTransformOrigin="0.536,0.5"/>
-            <Button x:Name="skipButton" Content="skip" Background="#000ff0" FontSize="14" Click="SkipClick" Margin="173,70,299,18"/>
-            <Button x:Name="prevButton" Content="prev" Background="#000ff0" FontSize="14" Click="PrevClick" Margin="90,70,382,18"/>
-            <TextBlock Name="SongTitle" Text="No Media Playing" Foreground="White" FontSize="16"
-                   HorizontalAlignment="Left" VerticalAlignment="Top" Margin="90,-1,0,0"/>
+            <Button Name="PlayButton" Content="Play" Background="#000ff0" FontSize="14" Click="PlayClick" Margin="168,70,304,18" RenderTransformOrigin="0.536,0.5"/>
+            <Button x:Name="skipButton" Content="skip" Background="#000ff0" FontSize="14" Click="SkipClick" Margin="207,70,265,18"/>
+            <Button x:Name="prevButton" Content="prev" Background="#000ff0" FontSize="14" Click="PrevClick" Margin="125,70,347,18"/>
+            <Button x:Name="SessionSkipButton" Content="Session" Background="#000ff0" FontSize="14" Click="SessionSkipClick" Margin="168,44,304,44" RenderTransformOrigin="0.536,0.5"/>
+            <Image x:Name="mediaThumbnailImage" Margin="20,20,392,0" />
 
+            <TextBlock x:Name="mediaTitleTextBlock" 
+                   Text="No Media Playing" 
+                   Foreground="Black" 
+                   
+                   FontSize="16"
+                   HorizontalAlignment="Left" 
+                   VerticalAlignment="Top" 
+                   Margin="119,20,0,0"/>
 
 
             <!-- Volume slider 1 -->
@@ -336,6 +344,14 @@
                     </ControlTemplate>
                 </Button.Template>
             </Button>
+            <TextBlock x:Name="mediaArtistTextBlock" 
+                Text="No Artist Playing" 
+                Foreground="Black" 
+                   
+                FontSize="10"
+                HorizontalAlignment="Left" 
+                VerticalAlignment="Top" 
+                Margin="119,40,0,0"/>
 
 
 
