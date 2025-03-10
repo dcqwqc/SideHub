@@ -10,7 +10,30 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Fonts\Jaro-Regular.ttf" />
+    <None Remove="Symbols\play.svg" />
+    <None Remove="Symbols\prev.svg" />
+    <None Remove="Symbols\skip.svg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Remove="Symbols\play.xaml" />
+    <Page Remove="Symbols\prev.xaml" />
+    <Page Remove="Symbols\skip.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Dubya.WindowsMediaController" Version="2.5.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Fonts\Jaro-Regular.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Symbols\play.xaml" />
+    <Resource Include="Symbols\prev.xaml" />
+    <Resource Include="Symbols\skip.xaml" />
   </ItemGroup>
 
 </Project>

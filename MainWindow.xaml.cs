@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using Windows.Media.Control;
@@ -14,13 +15,14 @@ namespace SideHub
     public partial class MainWindow : Window
     {
         private MediaManager mediaManager;
-
+        
         private static IntPtr _hookID = IntPtr.Zero;
         private static LowLevelMouseProc _proc = HookCallback;
         private bool isVisible = true;
 
         private readonly double hiddenPosition = -100; // Off-screen position
         private readonly double visiblePosition = 10;  // Target position
+        private bool isPlaying = false;
 
         public MainWindow()
         {
@@ -41,7 +43,10 @@ namespace SideHub
             _hookID = SetHook(_proc);
         }
 
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
 
+        }
         private void InitializeMediaManager()
         {
             mediaManager = new MediaManager();
@@ -65,11 +70,14 @@ namespace SideHub
             Dispatcher.Invoke(() =>
             {
                 mediaTitleTextBlock.Text = mediaTitle ?? "No media playing";
-
-                // Call the function to display the thumbnail
                 DisplayThumbnail(mediaThumbnailReference);
             });
+
+            // Update isPlaying based on the playback info
+            UpdateIsPlaying(session);
         }
+
+
 
 
         private async Task DisplayThumbnail(Windows.Storage.Streams.IRandomAccessStreamReference thumbnailReference)
@@ -117,23 +125,10 @@ namespace SideHub
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         // Event handler when a media session is closed
         private void MediaManager_OnAnySessionClosed(MediaManager.MediaSession session)
         {
+
             Dispatcher.Invoke(() =>
             {
                 mediaTitleTextBlock.Text = "No media playing"; // Reset UI when media is closed
@@ -178,22 +173,32 @@ namespace SideHub
                 // Display the thumbnail in the UI
                 await DisplayThumbnail(mediaThumbnail); // Call the DisplayThumbnail method to update the image
             }
+
+            // Update isPlaying based on the playback info
+            UpdateIsPlaying(sender);
         }
 
 
+        private void UpdateIsPlaying(MediaManager.MediaSession session)
+        {
+            // Get playback info from ControlSession
+            var playbackInfo = session.ControlSession.GetPlaybackInfo();
 
-
-
-
-
-
-
-
-
-
-
-
-
+            // Check if PlaybackStatus is not null and compare with the corresponding enum
+            isPlaying = playbackInfo?.PlaybackStatus == Windows.Media.Control.GlobalSystemMediaTransportControlsSessionPlaybackStatus.Playing;
+            // Optionally, update the UI based on isPlaying status
+            Dispatcher.Invoke(() =>
+            {
+                if (isPlaying)
+                {
+                    // Do something when media is playing (e.g., show play button, etc.)
+                }
+                else
+                {
+                    // Do something when media is paused/stopped (e.g., show pause button, etc.)
+                }
+            });
+        }
 
 
 
@@ -201,6 +206,13 @@ namespace SideHub
         {
             UnhookWindowsHookEx(_hookID);
         }
+
+
+
+
+
+
+
 
         private static IntPtr SetHook(LowLevelMouseProc proc)
         {

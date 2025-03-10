@@ -24,26 +24,170 @@
                 <RowDefinition Height="30"/>
             </Grid.RowDefinitions>
 
-            <!-- Media Image -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
             <!-- Audio Integration -->
-            <Rectangle Grid.Row="0" Grid.Column="0" Fill="#ffffff" Margin="20,20,235,0" RadiusX="7" RadiusY="7"/>
+            <Grid>
+                <Rectangle Grid.Row="0" Grid.Column="0" Fill="#ffffff" Margin="20,20,235,0" RadiusX="7" RadiusY="7" x:Name="maskRectangle"/>
 
-            <Button Name="PlayButton" Content="Play" Background="#000ff0" FontSize="14" Click="PlayClick" Margin="168,70,304,18" RenderTransformOrigin="0.536,0.5"/>
-            <Button x:Name="skipButton" Content="skip" Background="#000ff0" FontSize="14" Click="SkipClick" Margin="207,70,265,18"/>
-            <Button x:Name="prevButton" Content="prev" Background="#000ff0" FontSize="14" Click="PrevClick" Margin="125,70,347,18"/>
-            <Button x:Name="SessionSkipButton" Content="Session" Background="#000ff0" FontSize="14" Click="SessionSkipClick" Margin="168,44,304,44" RenderTransformOrigin="0.536,0.5"/>
-            <Image x:Name="mediaThumbnailImage" Margin="20,20,392,0" />
+                <Image x:Name="mediaThumbnailImage" Margin="20,20,392,0">
+                    <Image.OpacityMask>
+                        <VisualBrush Visual="{Binding ElementName=maskRectangle}" />
+                    </Image.OpacityMask>
+                </Image>
+            </Grid>
+
+
+
+            <Button Name="PlayButton" Background="Transparent" Click="PlayClick" Margin="183,78,289,10" BorderBrush="Transparent" BorderThickness="0">
+                <Button.FocusVisualStyle>
+                    <Style TargetType="Control">
+                        <Setter Property="Background" Value="Transparent"/>
+                    </Style>
+                </Button.FocusVisualStyle>
+                <Viewbox Stretch="Uniform">
+                    <Canvas Name="play" Width="20" Height="20">
+                        <Canvas.RenderTransform>
+                            <TranslateTransform X="0" Y="0"/>
+                        </Canvas.RenderTransform>
+                        <Canvas.Resources/>
+                        <!-- Unknown tag: sodipodi:namedview -->
+                        <Path x:Name="playicon" Fill="Black" Stretch="Uniform" Height="14" Width="15" Canvas.Left="4.574" HorizontalAlignment="Left" Canvas.Top="3.667" VerticalAlignment="Top">
+                            <Path.Data>
+                                <PathGeometry Figures="M9.25 5.06699C9.58333 5.25944 9.58333 5.74056 9.25 5.93301L0.999999 10.6962C0.666666 10.8886 0.25 10.648 0.25 10.2631L0.250001 0.73686C0.250001 0.35196 0.666668 0.111397 1 0.303847L9.25 5.06699Z" FillRule="NonZero"/>
+                            </Path.Data>
+                        </Path>
+                    </Canvas>
+                </Viewbox>
+            </Button>
+
+            <Button x:Name="skipButton" Background="Transparent" Click="SkipClick" Margin="218,78,254,10" BorderBrush="Transparent" BorderThickness="0">
+                <Button.FocusVisualStyle>
+                    <Style TargetType="Control">
+                        <Setter Property="Background" Value="Transparent"/>
+                    </Style>
+                </Button.FocusVisualStyle>
+                <Viewbox Stretch="Uniform">
+                    <Canvas Name="skip" Width="19" Height="13">
+                        <Canvas.RenderTransform>
+                            <TranslateTransform X="0" Y="0"/>
+                        </Canvas.RenderTransform>
+                        <Canvas.Resources/>
+                        <!-- Unknown tag: sodipodi:namedview -->
+                        <Path x:Name="skipicon" Fill="#000000" Stretch="Uniform" Canvas.Left="2.099" Canvas.Top="3.403" HorizontalAlignment="Left" Height="9" VerticalAlignment="Top" Width="6">
+                            <Path.Data>
+                                <PathGeometry Figures="M9.25 5.06699C9.58333 5.25944 9.58333 5.74056 9.25 5.93301L0.999999 10.6962C0.666666 10.8886 0.25 10.648 0.25 10.2631L0.250001 0.73686C0.250001 0.35196 0.666668 0.111397 1 0.303847L9.25 5.06699Z" FillRule="NonZero"/>
+                            </Path.Data>
+                        </Path>
+                        <Path x:Name="skipicon_Copy" Fill="#000000" Stretch="Uniform" HorizontalAlignment="Left" Canvas.Left="5.932" VerticalAlignment="Top" Canvas.Top="3.403" Height="9" Width="6">
+                            <Path.Data>
+                                <PathGeometry Figures="M9.25 5.06699C9.58333 5.25944 9.58333 5.74056 9.25 5.93301L0.999999 10.6962C0.666666 10.8886 0.25 10.648 0.25 10.2631L0.250001 0.73686C0.250001 0.35196 0.666668 0.111397 1 0.303847L9.25 5.06699Z" FillRule="NonZero"/>
+                            </Path.Data>
+                        </Path>
+                    </Canvas>
+                </Viewbox>
+            </Button>
+
+
+            <Button x:Name="prevButton" Background="Transparent" FontSize="14" Click="PrevClick" Margin="152,78,320,10" BorderBrush="Transparent" BorderThickness="0">
+                <Button.FocusVisualStyle>
+                    <Style TargetType="Control">
+                        <Setter Property="Background" Value="Transparent"/>
+                    </Style>
+                </Button.FocusVisualStyle>
+                <Viewbox Stretch="Uniform">
+                    <Canvas Name="prev_mirrored" Width="20" Height="12">
+                        <Canvas.RenderTransform>
+                            <TranslateTransform X="0" Y="0"/>
+                        </Canvas.RenderTransform>
+                        <Canvas.Resources/>
+                        <!-- Mirrored Path for previcon -->
+                        <Path x:Name="previcon_mirrored" Fill="#000000" Stretch="Uniform" Canvas.Left="2.099" Canvas.Top="3.403" HorizontalAlignment="Left" Height="9" VerticalAlignment="Top" Width="6">
+                            <Path.RenderTransform>
+                                <ScaleTransform ScaleX="-1" CenterX="3"/>
+                            </Path.RenderTransform>
+                            <Path.Data>
+                                <PathGeometry Figures="M9.25 5.06699C9.58333 5.25944 9.58333 5.74056 9.25 5.93301L0.999999 10.6962C0.666666 10.8886 0.25 10.648 0.25 10.2631L0.250001 0.73686C0.250001 0.35196 0.666668 0.111397 1 0.303847L9.25 5.06699Z" FillRule="NonZero"/>
+                            </Path.Data>
+                        </Path>
+                        <!-- Mirrored Path for previcon_Copy -->
+                        <Path x:Name="previcon_Copy_mirrored" Fill="#000000" Stretch="Uniform" HorizontalAlignment="Left" Canvas.Left="5.932" VerticalAlignment="Top" Canvas.Top="3.403" Height="9" Width="6">
+                            <Path.RenderTransform>
+                                <ScaleTransform ScaleX="-1" CenterX="3"/>
+                            </Path.RenderTransform>
+                            <Path.Data>
+                                <PathGeometry Figures="M9.25 5.06699C9.58333 5.25944 9.58333 5.74056 9.25 5.93301L0.999999 10.6962C0.666666 10.8886 0.25 10.648 0.25 10.2631L0.250001 0.73686C0.250001 0.35196 0.666668 0.111397 1 0.303847L9.25 5.06699Z" FillRule="NonZero"/>
+                            </Path.Data>
+                        </Path>
+                    </Canvas>
+                </Viewbox>
+            </Button>
+
+
+
+
+            <Button x:Name="SessionSkipButton" Content="Session" Background="#000ff0" Click="SessionSkipClick" Margin="142,-107,330,195" RenderTransformOrigin="0.536,0.5"/>
+
+
+
+
+
+
+
+
 
             <TextBlock x:Name="mediaTitleTextBlock" 
-                   Text="No Media Playing" 
-                   Foreground="Black" 
-                   
-                   FontSize="16"
-                   HorizontalAlignment="Left" 
-                   VerticalAlignment="Top" 
-                   Margin="119,20,0,0"/>
+	            Text="No Media Playing" 
+	            Foreground="Black" 
+	            FontSize="15"
+	            FontFamily="/Fonts/#Jaro"
+	            HorizontalAlignment="Left" 
+	            VerticalAlignment="Top" 
+	            Margin="116,26,0,0" Width="134" Height="18"
+                MaxWidth="134"/>
+            
+            
+            
+            <TextBlock x:Name="mediaArtistTextBlock" 
+                Text="No Artist Playing" 
+                Foreground="#5f5f5f" 
+                FontSize="11"
+                FontFamily="/Fonts/#Jaro"
+                HorizontalAlignment="Left" 
+                VerticalAlignment="Top" 
+                Margin="116,43,0,0" Width="134" Height="14"
+                MaxWidth="134"/>
+
+            
+            
+            <TextBlock x:Name="TimePlayed" 
+                Text="0:00" 
+                Foreground="#5f5f5f" 
+                FontSize="11"
+                FontFamily="/Fonts/#Jaro"
+                HorizontalAlignment="Left" 
+                VerticalAlignment="Top" 
+                Margin="116,81,0,0" Width="40" Height="14"
+                MaxWidth="40"/>
 
 
             <!-- Volume slider 1 -->
@@ -344,14 +488,6 @@
                     </ControlTemplate>
                 </Button.Template>
             </Button>
-            <TextBlock x:Name="mediaArtistTextBlock" 
-                Text="No Artist Playing" 
-                Foreground="Black" 
-                   
-                FontSize="10"
-                HorizontalAlignment="Left" 
-                VerticalAlignment="Top" 
-                Margin="119,40,0,0"/>
 
 
 
