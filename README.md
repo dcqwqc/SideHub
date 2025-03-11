@@ -4,7 +4,7 @@ The Hub on your mouse button – Quick access to everything or smt
 
 ## About Me :)
 
-Hey! I'm qwqc, a 15-year-old developer. Even tho Im more Into game design Im currently developing this and its  pure Pain already :)
+Hey! I'm qwqc, a 15-year-old developer. And I'm currently developing this thing right here and its  pure Pain already :)
 
 ## Features
 
