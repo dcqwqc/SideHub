@@ -22,7 +22,7 @@ Hey! I'm qwqc, a 15-year-old developer. And I'm currently developing this thing 
 ## 👀 Future Vision 
 (please Interpret ToDo's yourself for now too many to name them all)
 
-![image](https://github.com/user-attachments/assets/17bb4f52-1941-44fc-b7fb-f59bf9481651)
+![image](https://github.com/dcqwqc/SideHub/blob/main/SidehubFigma.png)
 
 Later on, hopefully more features will be added. The goal is to make SideHub an all-in-one tool to boost productivity and convenience if I wont end this all early on.
 
