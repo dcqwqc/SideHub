@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Extensions.Logging;
+using System;
 using System.Diagnostics;
 using System.IO;
 using System.Runtime.InteropServices;
@@ -39,9 +40,41 @@ namespace SideHub
             this.Opacity = 0;
             this.Topmost = true; // Basic always-on-top
 
+
+
+
+
+            SetMediaTitle();
+
+            Debug.WriteLine("nahh");
+
+
+
             // Set up global mouse hook
             _hookID = SetHook(_proc);
         }
+
+
+
+
+
+
+        private void SetMediaTitle()
+        {
+            // Ensure the layout is updated before accessing ActualWidth
+            this.Loaded += (sender, e) =>
+            {
+                double mediaTitle = 134 - mediaTitleTextBlock.ActualWidth;
+                // Now you can use the 'mediaTitle' value wherever you need.
+                // If you want to use this value as a resource, you can set it dynamically
+                this.Resources["MediaTitle"] = mediaTitle;
+                Debug.WriteLine(Resources["MediaTitle"]);
+            };
+        }
+
+
+
+
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {

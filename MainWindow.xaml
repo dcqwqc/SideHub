@@ -4,13 +4,19 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SideHub"
+        xmlns:System="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
         WindowStyle="None"
         Background="Transparent"
         AllowsTransparency="True"
         Title="MainWindow" Height="1000" Width="500">
 
+    <Window.Resources>
+        <System:Double x:Key="MediaTitle">-50</System:Double>
+    </Window.Resources>
+            
     <Border Background="#2b2943" CornerRadius="15">
+        
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
@@ -27,7 +33,7 @@
 
 
 
-
+            
 
 
 
@@ -155,30 +161,101 @@
 
 
 
-            <TextBlock x:Name="mediaTitleTextBlock" 
-	            Text="No Media Playing" 
-	            Foreground="Black" 
-	            FontSize="15"
-	            FontFamily="/Fonts/#Jaro"
-	            HorizontalAlignment="Left" 
-	            VerticalAlignment="Top" 
-	            Margin="116,26,0,0" Width="134" Height="18"
-                MaxWidth="134"/>
-            
-            
-            
-            <TextBlock x:Name="mediaArtistTextBlock" 
-                Text="No Artist Playing" 
-                Foreground="#5f5f5f" 
-                FontSize="11"
-                FontFamily="/Fonts/#Jaro"
-                HorizontalAlignment="Left" 
-                VerticalAlignment="Top" 
-                Margin="116,43,0,0" Width="134" Height="14"
-                MaxWidth="134"/>
+            <Border ClipToBounds="True" Margin="116,26,245,62" Height="20" Width="200">
+                <Viewbox Stretch="None">
+                    <TextBlock x:Name="mediaTitleTextBlock" 
+                   Text="No Media Playing" 
+                   Foreground="Black" 
+                   FontSize="15"
+                   FontFamily="/Fonts/#Jaro"
+                   HorizontalAlignment="Left" 
+                   VerticalAlignment="Center" 
+                   Height="18" Width="202">
+                        <TextBlock.RenderTransform>
+                            <TranslateTransform X="0" Y="0"/>
+                        </TextBlock.RenderTransform>
+                        <TextBlock.Style>
+                            <Style TargetType="TextBlock">
+                                <Style.Triggers>
+                                    <EventTrigger RoutedEvent="UIElement.MouseEnter">
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <DoubleAnimation 
+                                        Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)"
+                                        To="{StaticResource MediaTitle}" Duration="0:0:3" />
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </EventTrigger>
+                                    <EventTrigger RoutedEvent="UIElement.MouseLeave">
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <DoubleAnimation 
+                                        Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)"
+                                        To="0" Duration="0:0:3" />
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </EventTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                </Viewbox>
+            </Border>
 
-            
-            
+
+
+
+
+
+
+
+
+
+            <Border ClipToBounds="True" Margin="-135,0,0,0" Width="134" Height="14">
+                <Viewbox Stretch="None">
+                    <TextBlock x:Name="mediaArtistTextBlock" 
+                   Text="No Artist Playing" 
+                   Foreground="#5f5f5f" 
+                   FontSize="11"
+                   FontFamily="/Fonts/#Jaro"
+                   HorizontalAlignment="Left" 
+                   VerticalAlignment="Top"
+                   Width="134" Height="14"
+                   MaxWidth="134">
+                        <TextBlock.RenderTransform>
+                            <TranslateTransform X="0" Y="0"/>
+                        </TextBlock.RenderTransform>
+                        <TextBlock.Style>
+                            <Style TargetType="TextBlock">
+                                <Style.Triggers>
+                                    <EventTrigger RoutedEvent="UIElement.MouseEnter">
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <DoubleAnimation 
+                                        Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)"
+                                        To="-50" Duration="0:0:3" />
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </EventTrigger>
+                                    <EventTrigger RoutedEvent="UIElement.MouseLeave">
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <DoubleAnimation 
+                                        Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)"
+                                        To="0" Duration="0:0:3" />
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </EventTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                </Viewbox>
+            </Border>
+
+
+
+
             <TextBlock x:Name="TimePlayed" 
                 Text="0:00" 
                 Foreground="#5f5f5f" 

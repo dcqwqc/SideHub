@@ -26,3 +26,4 @@ C:\Projects\SideHub\obj\Debug\net9.0-windows10.0.22621.0\refint\SideHub.dll
 C:\Projects\SideHub\obj\Debug\net9.0-windows10.0.22621.0\SideHub.pdb
 C:\Projects\SideHub\obj\Debug\net9.0-windows10.0.22621.0\SideHub.genruntimeconfig.cache
 C:\Projects\SideHub\obj\Debug\net9.0-windows10.0.22621.0\ref\SideHub.dll
+C:\Projects\SideHub\obj\Debug\net9.0-windows10.0.22621.0\GeneratedInternalTypeHelper.g.cs
