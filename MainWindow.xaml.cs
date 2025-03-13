@@ -1,12 +1,15 @@
 ﻿using Microsoft.Extensions.Logging;
 using System;
 using System.Diagnostics;
+using System.Globalization;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
 using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
+using System.Windows.Threading;
 using Windows.Media.Control;
 using WindowsMediaController;
 
@@ -24,6 +27,8 @@ namespace SideHub
         private readonly double hiddenPosition = -100; // Off-screen position
         private readonly double visiblePosition = 10;  // Target position
         private bool isPlaying = false;
+        private double targetX;
+        private DispatcherTimer timer;
 
         public MainWindow()
         {
@@ -33,44 +38,77 @@ namespace SideHub
             mediaManager.OnAnySessionOpened += MediaManager_OnAnySessionOpened;
             mediaManager.OnAnySessionClosed += MediaManager_OnAnySessionClosed;
             mediaManager.StartAsync();
-        
+
             this.Height = SystemParameters.PrimaryScreenHeight - 20;
             this.Top = (SystemParameters.PrimaryScreenHeight - this.Height) / 2;
             this.Left = hiddenPosition;
             this.Opacity = 0;
             this.Topmost = true; // Basic always-on-top
 
-
-
-
-
-            SetMediaTitle();
-
-            Debug.WriteLine("nahh");
-
-
-
             // Set up global mouse hook
             _hookID = SetHook(_proc);
-        }
 
-
-
-
-
-
-        private void SetMediaTitle()
-        {
-            // Ensure the layout is updated before accessing ActualWidth
-            this.Loaded += (sender, e) =>
+            timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromMilliseconds(10);
+            timer.Tick += (sender, e) =>
             {
-                double mediaTitle = 134 - mediaTitleTextBlock.ActualWidth;
-                // Now you can use the 'mediaTitle' value wherever you need.
-                // If you want to use this value as a resource, you can set it dynamically
-                this.Resources["MediaTitle"] = mediaTitle;
-                Debug.WriteLine(Resources["MediaTitle"]);
+                double currentX = MediaBlockTransform.X;
+                if (Math.Abs(currentX - targetX) > 0.01) // Stoppt, wenn die Bewegung fast abgeschlossen ist
+                {
+                    double step = (targetX - currentX) * 0.01; // Schrittgröße
+                    MediaBlockTransform.X = currentX + step;
+                    Debug.WriteLine("reached");
+                }
+                else
+                {
+                    MediaBlockTransform.X = targetX; // Genau an die Zielposition setzen
+                    timer.Stop();
+
+                }
             };
+
+            mediaTitleTextBlock.MouseEnter += (sender, e) =>
+            {
+                if (mediaTitleTextBlock.ActualWidth >= 134)
+                {
+                    targetX = 134 - mediaTitleTextBlock.ActualWidth;
+                    timer.Start();
+                    Debug.WriteLine(134 - mediaTitleTextBlock.ActualWidth);
+                }
+            };
+
+            mediaTitleTextBlock.MouseLeave += (sender, e) =>
+            {
+                targetX = 0;
+                timer.Start();
+            };
+
         }
+
+        public class MultiplyConverter : IMultiValueConverter
+        {
+            public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
+            {
+                double result = 1.0;
+                for (int i = 0; i < values.Length; i++)
+                {
+                    if (values[i] is double)
+                        result *= (double)values[i];
+                }
+
+                return result;
+            }
+
+            public object[] ConvertBack(object value, Type[] targetTypes, object parameter, CultureInfo culture)
+            {
+                throw new Exception("Not implemented");
+            }
+        }
+
+
+
+
+
 
 
 

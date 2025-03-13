@@ -14,9 +14,9 @@
     <Window.Resources>
         <System:Double x:Key="MediaTitle">-50</System:Double>
     </Window.Resources>
-            
+
     <Border Background="#2b2943" CornerRadius="15">
-        
+
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
@@ -33,7 +33,7 @@
 
 
 
-            
+
 
 
 
@@ -151,7 +151,7 @@
 
 
 
-            <Button x:Name="SessionSkipButton" Content="Session" Background="#000ff0" Click="SessionSkipClick" Margin="142,-107,330,195" RenderTransformOrigin="0.536,0.5"/>
+            <Button x:Name="SessionSkipButton" Content="Session" Background="#000ff0" Click="SessionSkipClick" Margin="122,-57,244,145" RenderTransformOrigin="0.536,0.5"/>
 
 
 
@@ -161,59 +161,26 @@
 
 
 
-            <Border ClipToBounds="True" Margin="116,26,245,62" Height="20" Width="200">
-                <Viewbox Stretch="None">
-                    <TextBlock x:Name="mediaTitleTextBlock" 
-                   Text="No Media Playing" 
-                   Foreground="Black" 
-                   FontSize="15"
-                   FontFamily="/Fonts/#Jaro"
-                   HorizontalAlignment="Left" 
-                   VerticalAlignment="Center" 
-                   Height="18" Width="202">
+            <Border Margin="114,26,244,62" Height="20" ClipToBounds="true" Width="140">
+                <Viewbox Stretch="None" HorizontalAlignment="Left">
+                    <TextBlock x:Name="mediaTitleTextBlock"
+                        Text="No Media Playing"
+                        Foreground="Black"
+                        FontSize="15"
+                        FontFamily="/Fonts/#Jaro"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        Height="18">
                         <TextBlock.RenderTransform>
-                            <TranslateTransform X="0" Y="0"/>
+                            <TranslateTransform x:Name="MediaBlockTransform" X="0" Y="0"/>
                         </TextBlock.RenderTransform>
-                        <TextBlock.Style>
-                            <Style TargetType="TextBlock">
-                                <Style.Triggers>
-                                    <EventTrigger RoutedEvent="UIElement.MouseEnter">
-                                        <BeginStoryboard>
-                                            <Storyboard>
-                                                <DoubleAnimation 
-                                        Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)"
-                                        To="{StaticResource MediaTitle}" Duration="0:0:3" />
-                                            </Storyboard>
-                                        </BeginStoryboard>
-                                    </EventTrigger>
-                                    <EventTrigger RoutedEvent="UIElement.MouseLeave">
-                                        <BeginStoryboard>
-                                            <Storyboard>
-                                                <DoubleAnimation 
-                                        Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)"
-                                        To="0" Duration="0:0:3" />
-                                            </Storyboard>
-                                        </BeginStoryboard>
-                                    </EventTrigger>
-                                </Style.Triggers>
-                            </Style>
-                        </TextBlock.Style>
                     </TextBlock>
                 </Viewbox>
             </Border>
 
-
-
-
-
-
-
-
-
-
             <Border ClipToBounds="True" Margin="-135,0,0,0" Width="134" Height="14">
                 <Viewbox Stretch="None">
-                    <TextBlock x:Name="mediaArtistTextBlock" 
+                    <TextBlock x:Name="mediaArtistTextBlock"
                    Text="No Artist Playing" 
                    Foreground="#5f5f5f" 
                    FontSize="11"
@@ -223,35 +190,20 @@
                    Width="134" Height="14"
                    MaxWidth="134">
                         <TextBlock.RenderTransform>
-                            <TranslateTransform X="0" Y="0"/>
+                            <TranslateTransform x:Name="ArtistBlockTransform" X="0" Y="0"/>
                         </TextBlock.RenderTransform>
-                        <TextBlock.Style>
-                            <Style TargetType="TextBlock">
-                                <Style.Triggers>
-                                    <EventTrigger RoutedEvent="UIElement.MouseEnter">
-                                        <BeginStoryboard>
-                                            <Storyboard>
-                                                <DoubleAnimation 
-                                        Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)"
-                                        To="-50" Duration="0:0:3" />
-                                            </Storyboard>
-                                        </BeginStoryboard>
-                                    </EventTrigger>
-                                    <EventTrigger RoutedEvent="UIElement.MouseLeave">
-                                        <BeginStoryboard>
-                                            <Storyboard>
-                                                <DoubleAnimation 
-                                        Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)"
-                                        To="0" Duration="0:0:3" />
-                                            </Storyboard>
-                                        </BeginStoryboard>
-                                    </EventTrigger>
-                                </Style.Triggers>
-                            </Style>
-                        </TextBlock.Style>
                     </TextBlock>
                 </Viewbox>
             </Border>
+
+
+
+
+
+
+
+
+            
 
 
 
