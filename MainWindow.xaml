@@ -64,19 +64,31 @@
 
 
 
-            <Button Name="PlayButton" Background="Transparent" Click="PlayClick" Margin="183,78,289,10" BorderBrush="Transparent" BorderThickness="0">
-                <Button.FocusVisualStyle>
-                    <Style TargetType="Control">
-                        <Setter Property="Background" Value="Transparent"/>
+            <Button Name="PlayButton" Background="Transparent" Click="PlayClick" Margin="183,78,289,10" BorderBrush="Transparent" BorderThickness="0" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.467,0.525">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Style.Triggers>
+                            <EventTrigger RoutedEvent="Button.Click">
+                                <EventTrigger.Actions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleX" From="1" To="0.8" Duration="0:0:0.1" AutoReverse="True"/>
+                                            <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleY" From="1" To="0.8" Duration="0:0:0.1" AutoReverse="True"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger.Actions>
+                            </EventTrigger>
+                        </Style.Triggers>
                     </Style>
-                </Button.FocusVisualStyle>
+                </Button.Style>
+                <Button.RenderTransform>
+                    <ScaleTransform x:Name="scalePlayButton" ScaleX="1" ScaleY="1"/>
+                </Button.RenderTransform>
                 <Viewbox Stretch="Uniform">
-                    <Canvas Name="play" Width="20" Height="20">
+                    <Canvas Name="play" Width="20" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center">
                         <Canvas.RenderTransform>
                             <TranslateTransform X="0" Y="0"/>
                         </Canvas.RenderTransform>
-                        <Canvas.Resources/>
-                        <!-- Unknown tag: sodipodi:namedview -->
                         <Path x:Name="playicon" Fill="Black" Stretch="Uniform" Height="14" Width="15" Canvas.Left="4.574" HorizontalAlignment="Left" Canvas.Top="3.667" VerticalAlignment="Top">
                             <Path.Data>
                                 <PathGeometry Figures="M9.25 5.06699C9.58333 5.25944 9.58333 5.74056 9.25 5.93301L0.999999 10.6962C0.666666 10.8886 0.25 10.648 0.25 10.2631L0.250001 0.73686C0.250001 0.35196 0.666668 0.111397 1 0.303847L9.25 5.06699Z" FillRule="NonZero"/>
@@ -86,19 +98,31 @@
                 </Viewbox>
             </Button>
 
-            <Button x:Name="skipButton" Background="Transparent" Click="SkipClick" Margin="218,78,254,10" BorderBrush="Transparent" BorderThickness="0">
-                <Button.FocusVisualStyle>
-                    <Style TargetType="Control">
-                        <Setter Property="Background" Value="Transparent"/>
+            <Button x:Name="skipButton" Background="Transparent" Click="SkipClick" Margin="218,78,254,10" BorderBrush="Transparent" BorderThickness="0" RenderTransformOrigin="0.327,0.533">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Style.Triggers>
+                            <EventTrigger RoutedEvent="Button.Click">
+                                <EventTrigger.Actions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleX" From="1" To="0.8" Duration="0:0:0.1" AutoReverse="True"/>
+                                            <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleY" From="1" To="0.8" Duration="0:0:0.1" AutoReverse="True"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger.Actions>
+                            </EventTrigger>
+                        </Style.Triggers>
                     </Style>
-                </Button.FocusVisualStyle>
+                </Button.Style>
+                <Button.RenderTransform>
+                    <ScaleTransform x:Name="scaleSkipButton" ScaleX="1" ScaleY="1"/>
+                </Button.RenderTransform>
                 <Viewbox Stretch="Uniform">
-                    <Canvas Name="skip" Width="19" Height="13">
+                    <Canvas Name="skip" Width="19" Height="13" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.321,0.528">
                         <Canvas.RenderTransform>
                             <TranslateTransform X="0" Y="0"/>
                         </Canvas.RenderTransform>
-                        <Canvas.Resources/>
-                        <!-- Unknown tag: sodipodi:namedview -->
                         <Path x:Name="skipicon" Fill="#000000" Stretch="Uniform" Canvas.Left="2.099" Canvas.Top="3.403" HorizontalAlignment="Left" Height="9" VerticalAlignment="Top" Width="6">
                             <Path.Data>
                                 <PathGeometry Figures="M9.25 5.06699C9.58333 5.25944 9.58333 5.74056 9.25 5.93301L0.999999 10.6962C0.666666 10.8886 0.25 10.648 0.25 10.2631L0.250001 0.73686C0.250001 0.35196 0.666668 0.111397 1 0.303847L9.25 5.06699Z" FillRule="NonZero"/>
@@ -113,20 +137,31 @@
                 </Viewbox>
             </Button>
 
-
-            <Button x:Name="prevButton" Background="Transparent" FontSize="14" Click="PrevClick" Margin="152,78,320,10" BorderBrush="Transparent" BorderThickness="0">
-                <Button.FocusVisualStyle>
-                    <Style TargetType="Control">
-                        <Setter Property="Background" Value="Transparent"/>
+            <Button x:Name="prevButton" Background="Transparent" FontSize="14" Click="PrevClick" Margin="152,78,320,10" BorderBrush="Transparent" BorderThickness="0" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.393,0.557">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Style.Triggers>
+                            <EventTrigger RoutedEvent="Button.Click">
+                                <EventTrigger.Actions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleX" From="1" To="0.8" Duration="0:0:0.1" AutoReverse="True"/>
+                                            <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleY" From="1" To="0.8" Duration="0:0:0.1" AutoReverse="True"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger.Actions>
+                            </EventTrigger>
+                        </Style.Triggers>
                     </Style>
-                </Button.FocusVisualStyle>
+                </Button.Style>
+                <Button.RenderTransform>
+                    <ScaleTransform x:Name="scalePrevButton" ScaleX="1" ScaleY="1"/>
+                </Button.RenderTransform>
                 <Viewbox Stretch="Uniform">
-                    <Canvas Name="prev_mirrored" Width="20" Height="12">
+                    <Canvas Name="prev_mirrored" Width="20" Height="12" RenderTransformOrigin="0.404,0.553">
                         <Canvas.RenderTransform>
                             <TranslateTransform X="0" Y="0"/>
                         </Canvas.RenderTransform>
-                        <Canvas.Resources/>
-                        <!-- Mirrored Path for previcon -->
                         <Path x:Name="previcon_mirrored" Fill="#000000" Stretch="Uniform" Canvas.Left="2.099" Canvas.Top="3.403" HorizontalAlignment="Left" Height="9" VerticalAlignment="Top" Width="6">
                             <Path.RenderTransform>
                                 <ScaleTransform ScaleX="-1" CenterX="3"/>
@@ -135,7 +170,6 @@
                                 <PathGeometry Figures="M9.25 5.06699C9.58333 5.25944 9.58333 5.74056 9.25 5.93301L0.999999 10.6962C0.666666 10.8886 0.25 10.648 0.25 10.2631L0.250001 0.73686C0.250001 0.35196 0.666668 0.111397 1 0.303847L9.25 5.06699Z" FillRule="NonZero"/>
                             </Path.Data>
                         </Path>
-                        <!-- Mirrored Path for previcon_Copy -->
                         <Path x:Name="previcon_Copy_mirrored" Fill="#000000" Stretch="Uniform" HorizontalAlignment="Left" Canvas.Left="5.932" VerticalAlignment="Top" Canvas.Top="3.403" Height="9" Width="6">
                             <Path.RenderTransform>
                                 <ScaleTransform ScaleX="-1" CenterX="3"/>
@@ -147,6 +181,7 @@
                     </Canvas>
                 </Viewbox>
             </Button>
+
 
 
 
@@ -179,7 +214,7 @@
             </Border>
 
             <Border ClipToBounds="True" Margin="-135,0,0,0" Width="134" Height="14">
-                <Viewbox Stretch="None">
+                <Viewbox Stretch="None" HorizontalAlignment="Left">
                     <TextBlock x:Name="mediaArtistTextBlock"
                    Text="No Artist Playing" 
                    Foreground="#5f5f5f" 
