@@ -11,9 +11,7 @@
         AllowsTransparency="True"
         Title="MainWindow" Height="1000" Width="500">
 
-    <Window.Resources>
-        <System:Double x:Key="MediaTitle">-50</System:Double>
-    </Window.Resources>
+
 
     <Border Background="#2b2943" CornerRadius="15">
 
@@ -33,24 +31,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             <!-- Audio Integration -->
             <Grid>
                 <Rectangle Grid.Row="0" Grid.Column="0" Fill="#ffffff" Margin="20,20,235,0" RadiusX="7" RadiusY="7" x:Name="maskRectangle"/>
@@ -64,24 +44,19 @@
 
 
 
-            <Button Name="PlayButton" Click="PlayClick" Margin="189,78,0,0" 
-		HorizontalAlignment="Left" VerticalAlignment="Top" 
-		RenderTransformOrigin="0.467,0.525" Height="20" Width="21">
+            <Button x:Name="PlayButton" Background="Transparent" Click="PlayClick" Margin="191,79,0,0"
+		            BorderBrush="Transparent" BorderThickness="0" HorizontalAlignment="Left" VerticalAlignment="Top" 
+                    RenderTransformOrigin="0.5,0.5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
                 <Button.Style>
                     <Style TargetType="Button">
-                        <!-- Remove Default Styling -->
                         <Setter Property="OverridesDefaultStyle" Value="True"/>
-                        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
                         <Setter Property="Template">
                             <Setter.Value>
                                 <ControlTemplate TargetType="Button">
-                                    <Border Background="Transparent">
-                                        <Viewbox Stretch="Uniform">
-                                            <Canvas Name="play" Width="20" Height="20" 
-										HorizontalAlignment="Center" VerticalAlignment="Center">
-                                                <Path x:Name="playicon" Fill="Black" Stretch="Uniform" 
-										  Height="12" Width="13" Canvas.Left="6.574" 
-										  HorizontalAlignment="Left" Canvas.Top="3.667" VerticalAlignment="Top">
+                                    <Border Background="Transparent" RenderTransformOrigin="0.5,0.5">
+                                        <Viewbox Stretch="Uniform" Height="16" Width="16">
+                                            <Canvas Name="play" Width="20" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                                <Path x:Name="playicon" Fill="Black" Stretch="Uniform" Height="14" Width="15" Canvas.Left="4.574" Canvas.Top="3.667" RenderTransformOrigin="0.5,0.5">
                                                     <Path.Data>
                                                         <PathGeometry Figures="M9.25 5.06699C9.58333 5.25944 9.58333 5.74056 9.25 5.93301L0.999999 10.6962C0.666666 10.8886 0.25 10.648 0.25 10.2631L0.250001 0.73686C0.250001 0.35196 0.666668 0.111397 1 0.303847L9.25 5.06699Z" FillRule="NonZero"/>
                                                     </Path.Data>
@@ -92,6 +67,13 @@
                                     <ControlTemplate.Triggers>
                                         <Trigger Property="IsMouseOver" Value="True">
                                             <Setter TargetName="playicon" Property="Fill" Value="Gray"/>
+                                        </Trigger>
+                                        <Trigger Property="IsPressed" Value="True">
+                                            <Setter TargetName="playicon" Property="RenderTransform">
+                                                <Setter.Value>
+                                                    <ScaleTransform ScaleX="0.8" ScaleY="0.8"/>
+                                                </Setter.Value>
+                                            </Setter>
                                         </Trigger>
                                     </ControlTemplate.Triggers>
                                 </ControlTemplate>
@@ -106,32 +88,23 @@
             </Button>
 
 
-
-            <Button x:Name="skipButton" Background="Transparent" Click="SkipClick" Margin="218,78,254,10"
-		BorderBrush="Transparent" BorderThickness="0" RenderTransformOrigin="0.327,0.533" Content="">
+            <Button x:Name="skipButton" Background="Transparent" Click="SkipClick" Margin="218,76,250,10"
+                     BorderBrush="Transparent" BorderThickness="0" RenderTransformOrigin="0.5,0.5">
                 <Button.Style>
                     <Style TargetType="Button">
                         <Setter Property="OverridesDefaultStyle" Value="True"/>
                         <Setter Property="Template">
                             <Setter.Value>
                                 <ControlTemplate TargetType="Button">
-                                    <Border Background="Transparent">
+                                    <Border x:Name="border" Background="Transparent" RenderTransformOrigin="0.5,0.5">
                                         <Viewbox Stretch="Uniform">
-                                            <Canvas Name="skip" Width="22" Height="18" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                                <Path x:Name="skipicon" Fill="#000000" Canvas.Left="5" Canvas.Top="5" Height="8" Width="7" HorizontalAlignment="Left" VerticalAlignment="Top" Stretch="Fill">
+                                            <Canvas Name="skip" Width="19" Height="13" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                                <Path x:Name="skipicon" Fill="#000000" Canvas.Left="6.464" Canvas.Top="3.5" Height="6" Width="5" HorizontalAlignment="Center" Stretch="Fill" VerticalAlignment="Center">
                                                     <Path.Data>
                                                         <PathGeometry Figures="M9.25 5.06699C9.58333 5.25944 9.58333 5.74056 9.25 5.93301L0.999999 10.6962C0.666666 10.8886 0.25 10.648 0.25 10.2631L0.250001 0.73686C0.250001 0.35196 0.666668 0.111397 1 0.303847L9.25 5.06699Z" FillRule="NonZero"/>
                                                     </Path.Data>
                                                 </Path>
-                                                <Path x:Name="skipicon_Copy" Fill="#000000" Canvas.Left="9.707" Canvas.Top="4.739" Height="8" Width="8" HorizontalAlignment="Left" Stretch="Fill" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
-                                                    <Path.RenderTransform>
-                                                        <TransformGroup>
-                                                            <ScaleTransform/>
-                                                            <SkewTransform AngleY="-0.855"/>
-                                                            <RotateTransform/>
-                                                            <TranslateTransform Y="-0.042"/>
-                                                        </TransformGroup>
-                                                    </Path.RenderTransform>
+                                                <Path x:Name="skipicon_Copy" Fill="#000000" Canvas.Left="9.142" Canvas.Top="3.5" Height="6" Width="5" HorizontalAlignment="Center" Stretch="Fill" VerticalAlignment="Center">
                                                     <Path.Data>
                                                         <PathGeometry Figures="M9.25 5.06699C9.58333 5.25944 9.58333 5.74056 9.25 5.93301L0.999999 10.6962C0.666666 10.8886 0.25 10.648 0.25 10.2631L0.250001 0.73686C0.250001 0.35196 0.666668 0.111397 1 0.303847L9.25 5.06699Z" FillRule="NonZero"/>
                                                     </Path.Data>
@@ -145,12 +118,7 @@
                                             <Setter TargetName="skipicon_Copy" Property="Fill" Value="Gray"/>
                                         </Trigger>
                                         <Trigger Property="IsPressed" Value="True">
-                                            <Setter TargetName="skipicon" Property="RenderTransform">
-                                                <Setter.Value>
-                                                    <ScaleTransform ScaleX="0.8" ScaleY="0.8"/>
-                                                </Setter.Value>
-                                            </Setter>
-                                            <Setter TargetName="skipicon_Copy" Property="RenderTransform">
+                                            <Setter TargetName="border" Property="RenderTransform">
                                                 <Setter.Value>
                                                     <ScaleTransform ScaleX="0.8" ScaleY="0.8"/>
                                                 </Setter.Value>
@@ -164,28 +132,38 @@
                 </Button.Style>
             </Button>
 
-            <Button x:Name="prevButton" Background="Transparent" Click="PrevClick" Margin="152,78,320,10"
-		BorderBrush="Transparent" BorderThickness="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Button x:Name="prevButton" Background="Transparent" Click="PrevClick"
+                    BorderBrush="Transparent" BorderThickness="0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="20" Width="32" Margin="145,78,0,0" RenderTransformOrigin="0.5,0.5">
                 <Button.Style>
                     <Style TargetType="Button">
                         <Setter Property="OverridesDefaultStyle" Value="True"/>
                         <Setter Property="Template">
                             <Setter.Value>
                                 <ControlTemplate TargetType="Button">
-                                    <Border Background="Transparent">
+                                    <Border x:Name="buttonBorder" Background="Transparent" RenderTransformOrigin="0.5,0.5">
                                         <Viewbox Stretch="Uniform">
-                                            <Canvas Name="prev_mirrored" Width="26" Height="17">
-                                                <Path x:Name="previcon_mirrored" Fill="#000000" Canvas.Left="6.669" Canvas.Top="4.5" Height="8" Width="8" HorizontalAlignment="Left" VerticalAlignment="Top" Stretch="Fill">
+                                            <Canvas Name="prev_mirrored" Width="20" Height="12">
+                                                <Path x:Name="previcon_mirrored" Fill="#000000" Canvas.Left="6.5" Canvas.Top="3" Height="6" Width="5" HorizontalAlignment="Center" Stretch="Fill" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5">
                                                     <Path.RenderTransform>
-                                                        <ScaleTransform ScaleX="-1" CenterX="3"/>
+                                                        <TransformGroup>
+                                                            <ScaleTransform ScaleX="-1"/>
+                                                            <SkewTransform/>
+                                                            <RotateTransform/>
+                                                            <TranslateTransform X="1"/>
+                                                        </TransformGroup>
                                                     </Path.RenderTransform>
                                                     <Path.Data>
                                                         <PathGeometry Figures="M9.25 5.06699C9.58333 5.25944 9.58333 5.74056 9.25 5.93301L0.999999 10.6962C0.666666 10.8886 0.25 10.648 0.25 10.2631L0.250001 0.73686C0.250001 0.35196 0.666668 0.111397 1 0.303847L9.25 5.06699Z" FillRule="NonZero"/>
                                                     </Path.Data>
                                                 </Path>
-                                                <Path x:Name="previcon_Copy_mirrored" Fill="#000000" Canvas.Left="12" Canvas.Top="4.5" Height="8" Width="8" HorizontalAlignment="Left" Stretch="Fill" VerticalAlignment="Top">
+                                                <Path x:Name="previcon_Copy_mirrored" Fill="#000000" Canvas.Left="9.242" Canvas.Top="3" Height="6" Width="5" HorizontalAlignment="Center" Stretch="Fill" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5">
                                                     <Path.RenderTransform>
-                                                        <ScaleTransform ScaleX="-1" CenterX="3"/>
+                                                        <TransformGroup>
+                                                            <ScaleTransform ScaleX="-1"/>
+                                                            <SkewTransform/>
+                                                            <RotateTransform/>
+                                                            <TranslateTransform X="1"/>
+                                                        </TransformGroup>
                                                     </Path.RenderTransform>
                                                     <Path.Data>
                                                         <PathGeometry Figures="M9.25 5.06699C9.58333 5.25944 9.58333 5.74056 9.25 5.93301L0.999999 10.6962C0.666666 10.8886 0.25 10.648 0.25 10.2631L0.250001 0.73686C0.250001 0.35196 0.666668 0.111397 1 0.303847L9.25 5.06699Z" FillRule="NonZero"/>
@@ -200,24 +178,21 @@
                                             <Setter TargetName="previcon_Copy_mirrored" Property="Fill" Value="Gray"/>
                                         </Trigger>
                                         <Trigger Property="IsPressed" Value="True">
-                                            <Setter TargetName="previcon_mirrored" Property="RenderTransform">
+                                            <Setter TargetName="buttonBorder" Property="RenderTransform">
                                                 <Setter.Value>
-                                                    <ScaleTransform ScaleX="-0.8" ScaleY="0.8"/>
-                                                </Setter.Value>
-                                            </Setter>
-                                            <Setter TargetName="previcon_Copy_mirrored" Property="RenderTransform">
-                                                <Setter.Value>
-                                                    <ScaleTransform ScaleX="-0.8" ScaleY="0.8"/>
+                                                    <ScaleTransform ScaleX="0.8" ScaleY="0.8"/>
                                                 </Setter.Value>
                                             </Setter>
                                         </Trigger>
                                     </ControlTemplate.Triggers>
                                 </ControlTemplate>
+
                             </Setter.Value>
                         </Setter>
                     </Style>
                 </Button.Style>
             </Button>
+
 
 
 
