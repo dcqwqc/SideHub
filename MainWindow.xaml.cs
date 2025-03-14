@@ -1,17 +1,24 @@
 ﻿using Microsoft.Extensions.Logging;
 using System;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Globalization;
 using System.IO;
+using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
+using System.Windows.Shapes;
+using System.IO;
+
+using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Threading;
 using Windows.Media.Control;
 using WindowsMediaController;
+using static WindowsMediaController.MediaManager;
 
 
 namespace SideHub
@@ -26,9 +33,12 @@ namespace SideHub
 
         private readonly double hiddenPosition = -100; // Off-screen position
         private readonly double visiblePosition = 10;  // Target position
-        private bool isPlaying = false;
+        public bool isPlaying;
         private double targetX;
         private DispatcherTimer timer;
+        private MediaManager.MediaSession mediaSession;
+
+
 
         public MainWindow()
         {
@@ -106,6 +116,7 @@ namespace SideHub
             mediaManager.OnAnySessionOpened += MediaManager_OnAnySessionOpened;
             mediaManager.OnAnySessionClosed += MediaManager_OnAnySessionClosed;
             mediaManager.OnAnyMediaPropertyChanged += MediaManager_OnAnyMediaPropertyChanged;
+            mediaManager.OnAnyPlaybackStateChanged += OnAnyPlaybackStateChanged;
 
             // Start the MediaManager asynchronously
             mediaManager.StartAsync();
@@ -125,9 +136,20 @@ namespace SideHub
                 mediaTitleTextBlock.Text = mediaTitle ?? "No media playing";
                 DisplayThumbnail(mediaThumbnailReference);
             });
+            mediaSession = session;
+            CheckPlaybackState();
+        }
 
-            // Update isPlaying based on the playback info
-            UpdateIsPlaying(session);
+
+
+
+
+
+        private async void OnAnyPlaybackStateChanged(MediaManager.MediaSession session, GlobalSystemMediaTransportControlsSessionPlaybackInfo args)
+        {
+            mediaSession = session;
+            CheckPlaybackState();
+            Console.WriteLine("playback state changed");
         }
 
 
@@ -186,6 +208,9 @@ namespace SideHub
             {
                 mediaTitleTextBlock.Text = "No media playing"; // Reset UI when media is closed
             });
+
+            mediaSession = session;
+            CheckPlaybackState();
         }
 
         // Don't forget to stop the MediaManager when closing the window
@@ -195,7 +220,7 @@ namespace SideHub
             base.OnClosed(e);
         }
 
-        private async void MediaManager_OnAnyMediaPropertyChanged(MediaManager.MediaSession sender, GlobalSystemMediaTransportControlsSessionMediaProperties args)
+        private async void MediaManager_OnAnyMediaPropertyChanged(MediaManager.MediaSession session, GlobalSystemMediaTransportControlsSessionMediaProperties args)
         {
             // Get the media title from the updated properties
             var mediaTitle = args?.Title;
@@ -227,31 +252,88 @@ namespace SideHub
                 await DisplayThumbnail(mediaThumbnail); // Call the DisplayThumbnail method to update the image
             }
 
-            // Update isPlaying based on the playback info
-            UpdateIsPlaying(sender);
+
+
+            mediaSession = session;
+            CheckPlaybackState();
         }
 
 
-        private void UpdateIsPlaying(MediaManager.MediaSession session)
+
+
+
+
+
+
+
+
+        private System.Windows.Shapes.Path playIcon;
+        private System.Windows.Shapes.Path pauseIcon;
+
+
+        private void PlayButton_Loaded(object sender, RoutedEventArgs e)
         {
-            // Get playback info from ControlSession
-            var playbackInfo = session.ControlSession.GetPlaybackInfo();
+            var button = sender as Button;
 
-            // Check if PlaybackStatus is not null and compare with the corresponding enum
-            isPlaying = playbackInfo?.PlaybackStatus == Windows.Media.Control.GlobalSystemMediaTransportControlsSessionPlaybackStatus.Playing;
-            // Optionally, update the UI based on isPlaying status
-            Dispatcher.Invoke(() =>
+            if (button != null && button.Template != null)
             {
-                if (isPlaying)
-                {
-                    // Do something when media is playing (e.g., show play button, etc.)
-                }
-                else
-                {
-                    // Do something when media is paused/stopped (e.g., show pause button, etc.)
-                }
-            });
+                playIcon = button.Template.FindName("playicon", button) as System.Windows.Shapes.Path;
+                pauseIcon = button.Template.FindName("pauseicon", button) as System.Windows.Shapes.Path;
+
+            }
         }
+
+
+
+        public void CheckPlaybackState()
+        {
+            if (mediaSession != null)
+            {
+                var playbackInfo = mediaSession.ControlSession.GetPlaybackInfo();
+                Application.Current.Dispatcher.Invoke(() =>
+                {
+                    if (playbackInfo.PlaybackStatus == GlobalSystemMediaTransportControlsSessionPlaybackStatus.Playing)
+                    {
+                        Debug.WriteLine("Media is playing");
+                        if (pauseIcon != null) pauseIcon.Visibility = Visibility.Visible;
+                        if (playIcon != null) playIcon.Visibility = Visibility.Hidden;
+                    }
+                    else if (playbackInfo.PlaybackStatus == GlobalSystemMediaTransportControlsSessionPlaybackStatus.Paused)
+                    {
+                        Debug.WriteLine("Media is paused");
+                        if (playIcon != null) playIcon.Visibility = Visibility.Visible;
+                        if (pauseIcon != null) pauseIcon.Visibility = Visibility.Hidden;
+                    }
+                    else
+                    {
+                        Debug.WriteLine("No media is currently playing or media is stopped");
+                        if (playIcon != null) playIcon.Visibility = Visibility.Visible;
+                        if (pauseIcon != null) pauseIcon.Visibility = Visibility.Hidden;
+                    }
+                });
+            }
+            else
+            {
+                Application.Current.Dispatcher.Invoke(() =>
+                {
+                    Debug.WriteLine("No media session available");
+                    if (playIcon != null) playIcon.Visibility = Visibility.Visible;
+                    if (pauseIcon != null) pauseIcon.Visibility = Visibility.Hidden;
+                });
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

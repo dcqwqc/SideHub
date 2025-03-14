@@ -43,48 +43,75 @@
             </Grid>
 
 
+            <Button x:Name="PlayButton" 
+                    Background="Transparent" 
+                    Click="PlayClick" 
+                     Margin="191,79,0,0"
+                    BorderBrush="Transparent" 
+                    BorderThickness="0" 
+                    HorizontalAlignment="Left" 
+                    VerticalAlignment="Top" 
+                    RenderTransformOrigin="0.5,0.5" 
+                    HorizontalContentAlignment="Center" 
+                    VerticalContentAlignment="Center" 
+                    Loaded="PlayButton_Loaded"
+                    
+                    >
 
-            <Button x:Name="PlayButton" Background="Transparent" Click="PlayClick" Margin="191,79,0,0"
-		            BorderBrush="Transparent" BorderThickness="0" HorizontalAlignment="Left" VerticalAlignment="Top" 
-                    RenderTransformOrigin="0.5,0.5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
                 <Button.Style>
-                    <Style TargetType="Button">
-                        <Setter Property="OverridesDefaultStyle" Value="True"/>
-                        <Setter Property="Template">
-                            <Setter.Value>
-                                <ControlTemplate TargetType="Button">
-                                    <Border Background="Transparent" RenderTransformOrigin="0.5,0.5">
-                                        <Viewbox Stretch="Uniform" Height="16" Width="16">
-                                            <Canvas Name="play" Width="20" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                                <Path x:Name="playicon" Fill="Black" Stretch="Uniform" Height="14" Width="15" Canvas.Left="4.574" Canvas.Top="3.667" RenderTransformOrigin="0.5,0.5">
-                                                    <Path.Data>
-                                                        <PathGeometry Figures="M9.25 5.06699C9.58333 5.25944 9.58333 5.74056 9.25 5.93301L0.999999 10.6962C0.666666 10.8886 0.25 10.648 0.25 10.2631L0.250001 0.73686C0.250001 0.35196 0.666668 0.111397 1 0.303847L9.25 5.06699Z" FillRule="NonZero"/>
-                                                    </Path.Data>
-                                                </Path>
-                                            </Canvas>
-                                        </Viewbox>
-                                    </Border>
-                                    <ControlTemplate.Triggers>
+                        <Style TargetType="Button">
+                            <Setter Property="OverridesDefaultStyle" Value="True"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border Background="Transparent" RenderTransformOrigin="0.5,0.5">
+                                            <Viewbox Stretch="Uniform" Height="16" Width="16">
+                                                <Canvas Name="play" Width="20" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                                    <!-- Play Icon -->
+                                                    <Path x:Name="playicon" Fill="Black" Stretch="Uniform" Height="14" Width="15" Canvas.Left="4.574" Canvas.Top="3.667" RenderTransformOrigin="0.5,0.5">
+                                                        <Path.Data>
+                                                            <PathGeometry Figures="M9.25 5.06699C9.58333 5.25944 9.58333 5.74056 9.25 5.93301L0.999999 10.6962C0.666666 10.8886 0.25 10.648 0.25 10.2631L0.250001 0.73686C0.250001 0.35196 0.666668 0.111397 1 0.303847L9.25 5.06699Z" FillRule="NonZero"/>
+                                                        </Path.Data>
+                                                    </Path>
+                                                    <!-- Pause Icon (Hidden by default) -->
+                                                    <Path x:Name="pauseicon" Fill="Black" Stretch="Uniform" Height="14" Width="15" Canvas.Left="4.574" Canvas.Top="3.667" RenderTransformOrigin="0.5,0.5" Visibility="Collapsed">
+                                                        <Path.Data>
+                                                            <PathGeometry Figures="M0 0H5V14H0zM9.25 0H14V14H9.25z" FillRule="NonZero"/>
+                                                        </Path.Data>
+                                                    </Path>
+                                                </Canvas>
+                                            </Viewbox>
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+
+
                                         <Trigger Property="IsMouseOver" Value="True">
-                                            <Setter TargetName="playicon" Property="Fill" Value="Gray"/>
-                                        </Trigger>
-                                        <Trigger Property="IsPressed" Value="True">
-                                            <Setter TargetName="playicon" Property="RenderTransform">
-                                                <Setter.Value>
-                                                    <ScaleTransform ScaleX="0.8" ScaleY="0.8"/>
-                                                </Setter.Value>
-                                            </Setter>
-                                        </Trigger>
-                                    </ControlTemplate.Triggers>
-                                </ControlTemplate>
-                            </Setter.Value>
-                        </Setter>
-                    </Style>
+                                                <Setter TargetName="playicon" Property="Fill" Value="Gray"/>
+                                                <Setter TargetName="pauseicon" Property="Fill" Value="Gray"/>
+                                            </Trigger>
+                                            <Trigger Property="IsPressed" Value="True">
+                                                <Setter TargetName="playicon" Property="RenderTransform">
+                                                    <Setter.Value>
+                                                        <ScaleTransform ScaleX="0.8" ScaleY="0.8"/>
+                                                    </Setter.Value>
+                                                </Setter>
+                                                <Setter TargetName="pauseicon" Property="RenderTransform">
+                                                    <Setter.Value>
+                                                        <ScaleTransform ScaleX="0.8" ScaleY="0.8"/>
+                                                    </Setter.Value>
+                                                </Setter>
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
                 </Button.Style>
 
-                <Button.RenderTransform>
-                    <ScaleTransform x:Name="scalePlayButton" ScaleX="1" ScaleY="1"/>
-                </Button.RenderTransform>
+                    <Button.RenderTransform>
+                        <ScaleTransform x:Name="scalePlayButton" ScaleX="1" ScaleY="1"/>
+                    </Button.RenderTransform>
             </Button>
 
 
