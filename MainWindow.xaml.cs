@@ -100,7 +100,9 @@ namespace SideHub
 
 
 
-
+        private DispatcherTimer _timer;
+        private MediaManager _mediaManager;
+        private MediaSession _focusedSession;
 
 
 
@@ -117,10 +119,82 @@ namespace SideHub
             mediaManager.OnAnySessionClosed += MediaManager_OnAnySessionClosed;
             mediaManager.OnAnyMediaPropertyChanged += MediaManager_OnAnyMediaPropertyChanged;
             mediaManager.OnAnyPlaybackStateChanged += OnAnyPlaybackStateChanged;
+            mediaManager.OnAnyTimelinePropertyChanged += MediaManager_OnAnyTimelinePropertyChanged;
+            mediaManager.OnFocusedSessionChanged += MediaManager_OnFocusedSessionChanged;
 
             // Start the MediaManager asynchronously
             mediaManager.StartAsync();
+            _timer = new DispatcherTimer();
+            _timer.Interval = TimeSpan.FromMilliseconds(800);
+            _timer.Tick += Timer_Tick;
+            _timer.Start();
         }
+
+        private TimeSpan _illusionTime = TimeSpan.Zero;  // Variable to track the illusion time
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            Debug.WriteLine(isPlaying);  // Debugging the _isPlaying flag
+
+            if (_focusedSession == null || !isPlaying) return;  // Stop if not playing
+
+            var timelineProperties = _focusedSession.ControlSession.GetTimelineProperties();
+            var currentPosition = timelineProperties.Position;
+            var duration = timelineProperties.EndTime;
+
+            // Avoid division by zero
+            if (duration.TotalSeconds == 0) return;
+
+            // Check if currentPosition has changed and if the difference is >= 2 seconds
+            if (currentPosition > _illusionTime && (currentPosition - _illusionTime).TotalSeconds >= 2)
+            {
+                // If currentPosition has advanced by 2 seconds or more, set illusion time to match it
+                _illusionTime = currentPosition;
+            }
+            else
+            {
+                // If illusion time hasn't been reset by currentPosition, increment it
+                if (_illusionTime < duration)
+                {
+                    _illusionTime = _illusionTime.Add(TimeSpan.FromSeconds(1));  // Add 1 second to illusion time
+                }
+                else
+                {
+                    _illusionTime = TimeSpan.Zero;  // Reset illusion time when reaching the end
+                }
+            }
+
+            // Calculate progress percent based on illusion time
+            double progressPercent = (_illusionTime.TotalSeconds / duration.TotalSeconds) * 100;
+
+            // Update ProgressBar
+            TimeProgressBar.Value = progressPercent;
+
+            // Format the illusion time
+            string formattedTime = $"{_illusionTime:mm\\:ss}";
+            TimePlayed.Text = formattedTime;
+
+            // Log the formatted illusion time for debugging
+            Debug.WriteLine("TimerTick", formattedTime);
+        }
+
+
+
+
+
+
+        private void MediaManager_OnFocusedSessionChanged(MediaSession mediaSession)
+        {
+            _focusedSession = mediaSession;
+        }
+
+
+
+
+
+
+
+
         private async void MediaManager_OnAnySessionOpened(MediaManager.MediaSession session)
         {
             // Get current media properties, such as title and thumbnail
@@ -138,6 +212,11 @@ namespace SideHub
             });
             mediaSession = session;
             CheckPlaybackState();
+        }
+        private void MediaManager_OnAnyTimelinePropertyChanged(MediaSession mediaSession, GlobalSystemMediaTransportControlsSessionTimelineProperties timelineProperties)
+        {
+
+
         }
 
 
@@ -297,18 +376,21 @@ namespace SideHub
                         Debug.WriteLine("Media is playing");
                         if (pauseIcon != null) pauseIcon.Visibility = Visibility.Visible;
                         if (playIcon != null) playIcon.Visibility = Visibility.Hidden;
+                        isPlaying = true;
                     }
                     else if (playbackInfo.PlaybackStatus == GlobalSystemMediaTransportControlsSessionPlaybackStatus.Paused)
                     {
                         Debug.WriteLine("Media is paused");
                         if (playIcon != null) playIcon.Visibility = Visibility.Visible;
                         if (pauseIcon != null) pauseIcon.Visibility = Visibility.Hidden;
+                        isPlaying = false;
                     }
                     else
                     {
                         Debug.WriteLine("No media is currently playing or media is stopped");
                         if (playIcon != null) playIcon.Visibility = Visibility.Visible;
                         if (pauseIcon != null) pauseIcon.Visibility = Visibility.Hidden;
+                        isPlaying = false;
                     }
                 });
             }
@@ -319,6 +401,7 @@ namespace SideHub
                     Debug.WriteLine("No media session available");
                     if (playIcon != null) playIcon.Visibility = Visibility.Visible;
                     if (pauseIcon != null) pauseIcon.Visibility = Visibility.Hidden;
+                    isPlaying = false;
                 });
             }
         }
