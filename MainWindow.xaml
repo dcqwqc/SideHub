@@ -298,11 +298,11 @@
             <TextBlock x:Name="TimePlayed" 
                 Text="0:00" 
                 Foreground="#5f5f5f" 
-                FontSize="11"
+                FontSize="12"
                 FontFamily="/Fonts/#Jaro"
                 HorizontalAlignment="Left" 
                 VerticalAlignment="Top" 
-                Margin="121,71,0,0" Width="40" Height="14"
+                Margin="116,71,0,0" Width="40" Height="14"
                 MaxWidth="40"/>
 
 

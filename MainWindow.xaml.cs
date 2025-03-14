@@ -134,7 +134,6 @@ namespace SideHub
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-            Debug.WriteLine(isPlaying);  // Debugging the _isPlaying flag
 
             if (_focusedSession == null || !isPlaying) return;  // Stop if not playing
 
@@ -145,15 +144,22 @@ namespace SideHub
             // Avoid division by zero
             if (duration.TotalSeconds == 0) return;
 
-            // Check if currentPosition has changed and if the difference is >= 2 seconds
-            if (currentPosition > _illusionTime && (currentPosition - _illusionTime).TotalSeconds >= 2)
+            // Case 1: If currentPosition has advanced by 2 seconds or more, set illusion time to match it
+            if ((currentPosition - _illusionTime).TotalSeconds >= 6)
             {
-                // If currentPosition has advanced by 2 seconds or more, set illusion time to match it
-                _illusionTime = currentPosition;
+                Debug.WriteLine("TooSlow", currentPosition);
+                _illusionTime = currentPosition;  // Reset illusion time to current position
             }
+            // Case 2: If currentPosition is behind illusion time by 2 seconds or more
+            else if ((currentPosition - _illusionTime).TotalSeconds <= -6)
+            {
+                Debug.WriteLine("TooFast", currentPosition);
+                _illusionTime = currentPosition;  // Reset illusion time to current position
+            }
+            // Case 3: If no significant change, continue incrementing illusion time
             else
             {
-                // If illusion time hasn't been reset by currentPosition, increment it
+                Debug.WriteLine("fine");
                 if (_illusionTime < duration)
                 {
                     _illusionTime = _illusionTime.Add(TimeSpan.FromSeconds(1));  // Add 1 second to illusion time
@@ -177,6 +183,7 @@ namespace SideHub
             // Log the formatted illusion time for debugging
             Debug.WriteLine("TimerTick", formattedTime);
         }
+
 
 
 
