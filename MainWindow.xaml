@@ -499,7 +499,7 @@
 
             <!-- Space 1 -->
             <Rectangle Grid.Row="1" Grid.Column="0" Fill="#161326" Margin="20,20,19,7" RadiusX="15" RadiusY="15"/>
-            <Rectangle Grid.Row="1" Grid.Column="0" Fill="#1b1930" Margin="29,32,19,7" RadiusX="15" RadiusY="15"/>
+            <Rectangle Grid.Row="1" Grid.Column="0" Fill="#1b1930" Margin="27,27,19,7" RadiusX="12" RadiusY="12"/>
             <Rectangle Grid.Row="1" Grid.Column="0" Fill="#cac7e4" Margin="351,20,19,7" RadiusX="15" RadiusY="15"/>
             <Button Margin="376,27,0,0" Width="80" Height="14" Background="#ffffff" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Top" BorderBrush="Black" BorderThickness="0" SnapsToDevicePixels="True" RenderTransformOrigin="0.437,-0.35" Grid.Row="1">
                 <Button.Template>
@@ -510,100 +510,136 @@
                     </ControlTemplate>
                 </Button.Template>
             </Button>
-            <!--  Button Tabs -->
-            <Button Grid.Row="2" Grid.Column="0" Margin="21,0,0,0" Width="46" Height="23" Background="#ffffff" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center" BorderBrush="Black" BorderThickness="0" SnapsToDevicePixels="True" RenderTransformOrigin="0.575,10">
-                <Button.Template>
-                    <ControlTemplate TargetType="{x:Type Button}">
-                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="5">
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Border>
-                    </ControlTemplate>
-                </Button.Template>
-            </Button>
 
+            <!--  Button Tabs -->
             <!-- Space 2 -->
             <Rectangle Grid.Row="3" Grid.Column="0" Fill="#161326" Margin="16,4,24,0" RadiusX="15" RadiusY="15"/>
-            <Rectangle Grid.Row="3" Grid.Column="0" Fill="#1b1930" Margin="24,16,24,0" RadiusX="15" RadiusY="15"/>
+            <Rectangle Grid.Row="3" Grid.Column="0" Fill="#1b1930" Margin="24,16,24,0" RadiusX="12" RadiusY="12"/>
             <!-- 1 -->
-            <Button Grid.Row="2" Grid.Column="0" Margin="72,0,0,0" Width="46" Height="23" Background="#ffffff" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center" BorderBrush="Black" BorderThickness="0" SnapsToDevicePixels="True" RenderTransformOrigin="0.575,10">
-                <Button.Template>
-                    <ControlTemplate TargetType="{x:Type Button}">
-                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="5">
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Border>
-                    </ControlTemplate>
-                </Button.Template>
-            </Button>
-            <!-- 1 -->
-            <Button Grid.Row="2" Grid.Column="0" Margin="122,0,0,0" Width="46" Height="23" Background="#ffffff" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center" BorderBrush="Black" BorderThickness="0" SnapsToDevicePixels="True" RenderTransformOrigin="0.575,10">
-                <Button.Template>
-                    <ControlTemplate TargetType="{x:Type Button}">
-                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="5">
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Border>
-                    </ControlTemplate>
-                </Button.Template>
-            </Button>
-            <!-- 1 -->
-            <Button Grid.Row="2" Grid.Column="0" Margin="173,0,0,0" Width="46" Height="23" Background="#ffffff" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center" BorderBrush="Black" BorderThickness="0" SnapsToDevicePixels="True" RenderTransformOrigin="0.575,10">
-                <Button.Template>
-                    <ControlTemplate TargetType="{x:Type Button}">
-                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="5">
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Border>
-                    </ControlTemplate>
-                </Button.Template>
-            </Button>
-            <!-- 1 -->
-            <Button Grid.Row="2" Width="46" Height="23" Background="#ffffff" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center" BorderBrush="Black" BorderThickness="0" SnapsToDevicePixels="True" RenderTransformOrigin="0.575,10" Margin="223,0,0,0">
-                <Button.Template>
-                    <ControlTemplate TargetType="{x:Type Button}">
-                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="5">
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Border>
-                    </ControlTemplate>
-                </Button.Template>
-            </Button>
-            <!-- 1 -->
-            <Button Grid.Row="2" Grid.Column="0" Margin="275,0,0,0" Width="46" Height="23" Background="#ffffff" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center" BorderBrush="Black" BorderThickness="0" SnapsToDevicePixels="True" RenderTransformOrigin="0.575,10">
-                <Button.Template>
-                    <ControlTemplate TargetType="{x:Type Button}">
-                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="5">
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Border>
-                    </ControlTemplate>
-                </Button.Template>
-            </Button>
-            <!-- 1 -->
-            <Button Grid.Row="2" Grid.Column="0" Margin="325,0,0,0" Width="46" Height="23" Background="#ffffff" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center" BorderBrush="Black" BorderThickness="0" SnapsToDevicePixels="True" RenderTransformOrigin="0.575,10">
-                <Button.Template>
-                    <ControlTemplate TargetType="{x:Type Button}">
-                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="5">
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Border>
-                    </ControlTemplate>
-                </Button.Template>
-            </Button>
-            <!-- 1 -->
-            <Button Grid.Row="2" Grid.Column="0" Margin="376,0,0,0" Width="46" Height="23" Background="#ffffff" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center" BorderBrush="Black" BorderThickness="0" SnapsToDevicePixels="True" RenderTransformOrigin="0.575,10">
-                <Button.Template>
-                    <ControlTemplate TargetType="{x:Type Button}">
-                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="5">
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Border>
-                    </ControlTemplate>
-                </Button.Template>
-            </Button>
-            <!-- 1 -->
-            <Button Grid.Row="2" Grid.Column="0" Margin="427,0,0,0" Width="46" Height="23" Background="#ffffff" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center" BorderBrush="Black" BorderThickness="0" SnapsToDevicePixels="True" RenderTransformOrigin="0.575,10">
-                <Button.Template>
-                    <ControlTemplate TargetType="{x:Type Button}">
-                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="5">
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Border>
-                    </ControlTemplate>
-                </Button.Template>
-            </Button>
+
+
+
+
+
+
+
+
+
+
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2" Height="38" Width="468">
+                <RadioButton Margin="5" Width="50" Height="25" Background="#ffffff" FontSize="14" VerticalAlignment="Center" 
+                 BorderBrush="Black" BorderThickness="0.5" GroupName="Tabs" Checked="PhoneTab_checked" Content="phone">
+                    <RadioButton.Template>
+                        <ControlTemplate TargetType="{x:Type RadioButton}">
+                            <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="3">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsChecked" Value="True">
+                                    <Setter TargetName="border" Property="Background" Value="#1b1b1b"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </RadioButton.Template>
+                </RadioButton>
+
+                <RadioButton Margin="5" Width="50" Height="25" Background="#ffffff" FontSize="14" VerticalAlignment="Center" 
+                 BorderBrush="Black" BorderThickness="0.5" GroupName="Tabs" Checked="Tab2_Checked">
+                    <RadioButton.Template>
+                        <ControlTemplate TargetType="{x:Type RadioButton}">
+                            <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="3">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsChecked" Value="True">
+                                    <Setter TargetName="border" Property="Background" Value="#1b1b1b"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </RadioButton.Template>
+                    Tab 2
+                </RadioButton>
+
+                <RadioButton Margin="5" Width="50" Height="25" Background="#ffffff" FontSize="14" VerticalAlignment="Center" 
+                 BorderBrush="Black" BorderThickness="0.5" GroupName="Tabs" Checked="Tab3_Checked">
+                    <RadioButton.Template>
+                        <ControlTemplate TargetType="{x:Type RadioButton}">
+                            <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="3">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsChecked" Value="True">
+                                    <Setter TargetName="border" Property="Background" Value="#1b1b1b"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </RadioButton.Template>
+                    Tab 3
+                </RadioButton>
+            </StackPanel>
+
+
+
+            <Grid VerticalAlignment="Top" Margin="24,16,24,0" Grid.Row="3" Height="672">
+
+                <!-- Content 1 -->
+                <Grid x:Name="PhoneTab" VerticalAlignment="Center" Height="672" Visibility="Visible">
+                    <Rectangle Fill="#161326" Margin="-7,-12,0,0" RadiusX="15" RadiusY="15"/>
+                    <Rectangle Fill="#1b1930" RadiusX="15" RadiusY="15" Margin="0,-3,0,0"/>
+                    <Border Margin="306,23,22,0"
+                        Background="#ffffff"
+                        CornerRadius="5"
+                        BorderThickness="1"
+                        BorderBrush="Transparent"
+                        Height="26"
+                        VerticalAlignment="Top">
+
+                        <TextBox
+                            x:Name="UserIP"
+                            FontSize="14"
+                            Background="Transparent"
+                            BorderThickness="0"
+                            Foreground="Black"
+                            Padding="5,2"
+                            Text="ip here"/>
+                    </Border>
+
+
+                    <Button Margin="306,54,0,0" Content="BrowsePath" Click="BrowseButton_Click" Width="124" Height="27" Background="#ffffff" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Top" BorderBrush="Black" BorderThickness="0.5" SnapsToDevicePixels="True" RenderTransformOrigin="0.437,-0.35">
+                        <Button.Template>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="3">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                    <Button Margin="306,125,0,0" Content="Start" Click="StartPhone_Click" Width="124" Height="27" Background="#ffffff" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Top" BorderBrush="Black" BorderThickness="0.5" SnapsToDevicePixels="True" RenderTransformOrigin="0.437,-0.35">
+                        <Button.Template>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="3">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+
+
+                </Grid>
+
+                <!-- Content 2 -->
+                <Grid x:Name="Content2" VerticalAlignment="Center" Height="672" Visibility="Collapsed">
+                    <TextBlock Text="This is Content 2" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </Grid>
+
+                <!-- Content 3 -->
+                <Grid x:Name="Content3" VerticalAlignment="Center" Height="672" Visibility="Collapsed">
+                    <TextBlock Text="This is Content 3" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </Grid>
+
+            </Grid>
+
 
 
 

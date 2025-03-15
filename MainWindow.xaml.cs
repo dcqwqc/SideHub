@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿// Existing using directives
+using Microsoft.Extensions.Logging;
 using System;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -10,8 +11,6 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Shapes;
-using System.IO;
-
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
@@ -42,6 +41,11 @@ namespace SideHub
 
         public MainWindow()
         {
+
+
+
+
+
             // Initialize MediaManager
             InitializeComponent();
             InitializeMediaManager();
@@ -359,7 +363,7 @@ namespace SideHub
 
         private void PlayButton_Loaded(object sender, RoutedEventArgs e)
         {
-            var button = sender as Button;
+            var button = sender as System.Windows.Controls.Button;
 
             if (button != null && button.Template != null)
             {
@@ -376,7 +380,7 @@ namespace SideHub
             if (mediaSession != null)
             {
                 var playbackInfo = mediaSession.ControlSession.GetPlaybackInfo();
-                Application.Current.Dispatcher.Invoke(() =>
+                System.Windows.Application.Current.Dispatcher.Invoke(() =>
                 {
                     if (playbackInfo.PlaybackStatus == GlobalSystemMediaTransportControlsSessionPlaybackStatus.Playing)
                     {
@@ -403,7 +407,7 @@ namespace SideHub
             }
             else
             {
-                Application.Current.Dispatcher.Invoke(() =>
+                System.Windows.Application.Current.Dispatcher.Invoke(() =>
                 {
                     Debug.WriteLine("No media session available");
                     if (playIcon != null) playIcon.Visibility = Visibility.Visible;
@@ -460,9 +464,9 @@ namespace SideHub
 
                 if (button == XBUTTON2) // MB4 Pressed
                 {
-                    Application.Current.Dispatcher.Invoke(() =>
+                    System.Windows.Application.Current.Dispatcher.Invoke(() =>
                     {
-                        MainWindow mainWindow = (MainWindow)Application.Current.MainWindow;
+                        MainWindow mainWindow = (MainWindow)System.Windows.Application.Current.MainWindow;
                         mainWindow.ToggleVisibility();
                     });
                 }
@@ -602,6 +606,26 @@ namespace SideHub
         private void SwitchToNextSession()
         {
             //help
+        }
+
+
+        private void Tab2_Checked(object sender, RoutedEventArgs e)
+        {
+            PhoneTab.Visibility = Visibility.Collapsed;
+            Content2.Visibility = Visibility.Visible;
+            Content3.Visibility = Visibility.Collapsed;
+        }
+
+        private void Tab3_Checked(object sender, RoutedEventArgs e)
+        {
+            PhoneTab.Visibility = Visibility.Collapsed;
+            Content2.Visibility = Visibility.Collapsed;
+            Content3.Visibility = Visibility.Visible;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

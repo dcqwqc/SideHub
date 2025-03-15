@@ -1,3 +1,9 @@
+C:\Projects\SideHub\obj\Debug\net9.0-windows10.0.22621.0\SideHub.csproj.AssemblyReference.cache
+C:\Projects\SideHub\obj\Debug\net9.0-windows10.0.22621.0\MainWindow.g.cs
+C:\Projects\SideHub\obj\Debug\net9.0-windows10.0.22621.0\App.g.cs
+C:\Projects\SideHub\obj\Debug\net9.0-windows10.0.22621.0\SideHub_Content.g.cs
+C:\Projects\SideHub\obj\Debug\net9.0-windows10.0.22621.0\SideHub_MarkupCompile.cache
+C:\Projects\SideHub\obj\Debug\net9.0-windows10.0.22621.0\SideHub_MarkupCompile.lref
 C:\Projects\SideHub\bin\Debug\net9.0-windows10.0.22621.0\SideHub.exe
 C:\Projects\SideHub\bin\Debug\net9.0-windows10.0.22621.0\SideHub.deps.json
 C:\Projects\SideHub\bin\Debug\net9.0-windows10.0.22621.0\SideHub.runtimeconfig.json
@@ -7,12 +13,6 @@ C:\Projects\SideHub\bin\Debug\net9.0-windows10.0.22621.0\WindowsMediaController.
 C:\Projects\SideHub\bin\Debug\net9.0-windows10.0.22621.0\Microsoft.Extensions.Logging.Abstractions.dll
 C:\Projects\SideHub\bin\Debug\net9.0-windows10.0.22621.0\Microsoft.Windows.SDK.NET.dll
 C:\Projects\SideHub\bin\Debug\net9.0-windows10.0.22621.0\WinRT.Runtime.dll
-C:\Projects\SideHub\obj\Debug\net9.0-windows10.0.22621.0\SideHub.csproj.AssemblyReference.cache
-C:\Projects\SideHub\obj\Debug\net9.0-windows10.0.22621.0\MainWindow.g.cs
-C:\Projects\SideHub\obj\Debug\net9.0-windows10.0.22621.0\App.g.cs
-C:\Projects\SideHub\obj\Debug\net9.0-windows10.0.22621.0\SideHub_Content.g.cs
-C:\Projects\SideHub\obj\Debug\net9.0-windows10.0.22621.0\SideHub_MarkupCompile.cache
-C:\Projects\SideHub\obj\Debug\net9.0-windows10.0.22621.0\SideHub_MarkupCompile.lref
 C:\Projects\SideHub\obj\Debug\net9.0-windows10.0.22621.0\MainWindow.baml
 C:\Projects\SideHub\obj\Debug\net9.0-windows10.0.22621.0\SideHub.g.resources
 C:\Projects\SideHub\obj\Debug\net9.0-windows10.0.22621.0\SideHub.GeneratedMSBuildEditorConfig.editorconfig

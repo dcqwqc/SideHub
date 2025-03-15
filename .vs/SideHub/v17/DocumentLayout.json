@@ -3,16 +3,20 @@
   "WorkspaceRootPath": "C:\\Projects\\SideHub\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C8F90A94-0D96-4F94-9F66-91E0EC5141B2}|SideHub.csproj|c:\\projects\\sidehub\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{C8F90A94-0D96-4F94-9F66-91E0EC5141B2}|SideHub.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{C8F90A94-0D96-4F94-9F66-91E0EC5141B2}|SideHub.csproj|c:\\projects\\sidehub\\phonetab.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C8F90A94-0D96-4F94-9F66-91E0EC5141B2}|SideHub.csproj|solutionrelative:phonetab.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C8F90A94-0D96-4F94-9F66-91E0EC5141B2}|SideHub.csproj|c:\\projects\\sidehub\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C8F90A94-0D96-4F94-9F66-91E0EC5141B2}|SideHub.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C8F90A94-0D96-4F94-9F66-91E0EC5141B2}|SideHub.csproj|c:\\projects\\sidehub\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{C8F90A94-0D96-4F94-9F66-91E0EC5141B2}|SideHub.csproj|solutionrelative:app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{C8F90A94-0D96-4F94-9F66-91E0EC5141B2}|SideHub.csproj|c:\\projects\\sidehub\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{C8F90A94-0D96-4F94-9F66-91E0EC5141B2}|SideHub.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8F90A94-0D96-4F94-9F66-91E0EC5141B2}|SideHub.csproj|c:\\projects\\sidehub\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C8F90A94-0D96-4F94-9F66-91E0EC5141B2}|SideHub.csproj|solutionrelative:app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,11 +26,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "C:\\Projects\\SideHub\\MainWindow.xaml",
               "RelativeDocumentMoniker": "MainWindow.xaml",
@@ -39,16 +43,43 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PhoneTab.xaml.cs",
+              "DocumentMoniker": "C:\\Projects\\SideHub\\PhoneTab.xaml.cs",
+              "RelativeDocumentMoniker": "PhoneTab.xaml.cs",
+              "ToolTip": "C:\\Projects\\SideHub\\PhoneTab.xaml.cs",
+              "RelativeToolTip": "PhoneTab.xaml.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAqwBcAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-14T20:45:44.217Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "C:\\Projects\\SideHub\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "MainWindow.xaml.cs",
               "ToolTip": "C:\\Projects\\SideHub\\MainWindow.xaml.cs",
               "RelativeToolTip": "MainWindow.xaml.cs",
-              "ViewState": "AgIAAHMAAAAAAAAAAAAAAH8AAAA7AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-09T22:47:42.247Z",
               "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "App.xaml.cs",
+              "DocumentMoniker": "C:\\Projects\\SideHub\\App.xaml.cs",
+              "RelativeDocumentMoniker": "App.xaml.cs",
+              "ToolTip": "C:\\Projects\\SideHub\\App.xaml.cs",
+              "RelativeToolTip": "App.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-14T23:00:04.634Z",
               "EditorCaption": ""
             },
             {
@@ -58,18 +89,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "App.xaml",
-              "DocumentMoniker": "C:\\Projects\\SideHub\\App.xaml",
-              "RelativeDocumentMoniker": "App.xaml",
-              "ToolTip": "C:\\Projects\\SideHub\\App.xaml",
-              "RelativeToolTip": "App.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-03-13T21:44:03.547Z",
-              "EditorCaption": ""
             }
           ]
         }
